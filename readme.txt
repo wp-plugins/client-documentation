@@ -26,15 +26,26 @@ Backend Users and Administrators can pin items to highlight them.
 
 == Installation ==
 
-The installation is not tricky. It's simple as activate the plugin and Add content !
+The installation is not tricky. It's simple as activating the plugin and Add content !
 
 == Changelog == 
-1.0.1 - Description / Name fix
-1.0 - Initial Version
+= 1.0.1 =
+
+* Plugin's Name and Description Fix
+
+= 1.0 =
+
+* Initial Version
 
 == Upgrade Notice ==
 Keep this plugin up to date by updating it now !
 
  == Frequently Asked Questions ==
-Q: What's happenning when I delete this plugin ?
-A: All the data stored in your database and Wordpress options are also deleted ! When the plugin is desactivated, all data remains in your database.
+=  What's happenning when I delete this plugin ? =
+All the data stored in your database and Wordpress options are also deleted ! When the plugin is desactivated, all data remains in your database.
+
+== Screenshots ==
+
+1. Widget shown to Administrator and the User role you want (Editor as default)
+2. Add content box
+3. Options
