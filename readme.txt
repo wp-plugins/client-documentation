@@ -1,6 +1,7 @@
 === Simple Documentation ===
 Contributors: mathieuhays
-Tags: documentation,video,link,file,note
+Donate link: http://mathieuhays.co.uk/
+Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed
 Requires at least: 3.0.1
 Tested up to: 3.6
 Stable tag: 1.0.1
