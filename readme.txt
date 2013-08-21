@@ -14,6 +14,7 @@ This plugin helps webmasters/developers to provide documentation through the Wor
 This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
 
 This plugins allows you to share 4 types of content:
+
 *   "Link" It is a simple link with a custom title and url which will open in a new tab
 *   "Video" Allow you to put an embed code from websites like Youtube, Vimeo, ScreenR (all the ones which gives you iframe based code)
 *   "Quick Note" This a short text which intend to help by giving a short tip! (for longer content use Links!)
