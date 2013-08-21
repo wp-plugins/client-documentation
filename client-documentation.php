@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: Client Documentation
-Plugin URI: http://mathieuhays.com/
-Description: This plugin helps web agencies to communicate documentation to their clients about their website.
-Version: 1.0
+Plugin Name: Simple Documentation
+Plugin URI: http://mathieuhays.co.uk/simple-documentation/
+Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
+Version: 1.0.1
 Author: Mathieu Hays
-Author URI: http://mathieuhays.com
+Author URI: http://mathieuhays.co.uk
 License: GPL2
 */
 
