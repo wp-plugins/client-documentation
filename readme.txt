@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Simple Documentation ===
 Contributors: mathieuhays
 Tags: documentation,video,link,file,note
 Requires at least: 3.0.1
