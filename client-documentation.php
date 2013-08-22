@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.0.2
+Version: 1.0.3
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -23,14 +23,6 @@ License: GPL2
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
-
-/*
-
-	Note to Wordpress moderators:
-	My dedicated page is coming as I finish to redesign my personal website. Available very soon!
-	Thanks !
-
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -110,7 +102,7 @@ class clientDocumentation {
     	
     	// Get options saved by the administrator
     	$widget_dn = (get_option('clientDocumentation_widgetTitle')) ? get_option( 'clientDocumentation_widgetTitle' ) : __('Resources', 'clientDocumentation');
-		$role = (get_option('clientDocumentation_clientRole')) ? get_option('clientDocumentation_clientRole') : 'editor';
+		$role = (get_option('clientDocumentation_clientRole')) ? get_option('clientDocumentation_clientRole') : 'Editor';
 		
 		// Filter by role and apply custom title
 		if($this->check_user_role($role) || $this->check_user_role('administrator'))
@@ -138,6 +130,7 @@ class clientDocumentation {
 	    delete_option( 'clientDocumentation_clientRole' );
 	    delete_option( 'clientDocumentation_widgetTitle' );
 	    delete_option( 'clientDocumentation_itemNumber' );
+	    delete_option( 'clientDocumentation_welcomeMessage' );
     }
     
     /**
@@ -273,6 +266,7 @@ class clientDocumentation {
 				<div class="clearfix">
 					
 					<div class="first-part">
+					
 						<h2><?php _e( 'Documentation list', 'clientDocumentation' ); ?></h2>
 						<ul class="cd-list">
 						
@@ -349,7 +343,7 @@ class clientDocumentation {
 	 * > Edit content Modal
 	 */
 	public function modal(){
-		
+		global $wp_roles,$wpdb;
 		add_thickbox();
 		
 		?>
@@ -472,27 +466,38 @@ class clientDocumentation {
 		
 			$documentation = (get_option('clientDocumentation_widgetTitle')) ? get_option('clientDocumentation_widgetTitle') : __('Resources', 'clientDocumentation');
 			$itemNumber = (get_option('clientDocumentation_itemNumber')) ? get_option('clientDocumentation_itemNumber') : 10;
+			
+			$welcomeMessage = (get_option('clientDocumentation_welcomeMessage')) ? get_option('clientDocumentation_welcomeMessage') : __('Need Help ? All you need is here !','clientDocumentation');
 		
 		?>
 		<div class="cd_modal" id="cd_edit_settings" style="display:none">
 			
 			<div class="cd_edit_settings">
 				<h2><?php _e( 'Settings' , 'clientDocumentation' ); ?></h2>
-				
 				<form method="post" name="clientDocumentation_form" action="">
 				
 					<input type="hidden" name="clientDocumentation_sbtcr" value="CDMH"/>
 					<p>
 						<label for="clientDocumentation_clientRole"><?php _e( 'Define the client user role' , 'clientDocumentation' ); ?></label><br />
 						<select name="clientDocumentation_clientRole" id="clientDocumentation_clientRole">
-							<option value="editor" <?php echo $this->checked( 'editor' ); ?>><?php _e( 'Editor' , 'clientDocumentation' ); ?></option>
+							<!--<option value="editor" <?php echo $this->checked( 'editor' ); ?>><?php _e( 'Editor' , 'clientDocumentation' ); ?></option>
 							<option value="author" <?php echo $this->checked( 'author' ); ?>><?php _e( 'Author' , 'clientDocumentation' ); ?></option>
-							<option value="subscriber" <?php echo $this->checked( 'subscriber' ); ?>><?php _e( 'Subscriber' , 'clientDocumentation' ); ?></option>
+							<option value="subscriber" <?php echo $this->checked( 'subscriber' ); ?>><?php _e( 'Subscriber' , 'clientDocumentation' ); ?></option>-->
+							<?php
+								$roles = $wp_roles->roles;
+								foreach($roles as $srole => $vrole){
+									echo '<option value="'.$srole.'" '. $this->checked( $srole ) . '>'.$vrole['name'].'</option>';
+								}
+							?>
 						</select>
 					</p>
 					<p>
 						<label for="clientDocumentation_widget_title"><?php _e( 'Widget title', 'clientDocumentation' ); ?></label><br />
 						<input type="text" name="clientDocumentation_widget_title" id="clientDocumentation_widget_title" value="<?php echo $documentation; ?>"/>
+					</p>
+					<p>
+						<label for="clientDocumentation_welcomeMessage"><?php _e('Welcome Message','clientDocumentation'); ?></label><br />
+						<input type="text" name="clientDocumentation_welcomeMessage" id="clientDocumentation_welcomeMessage" value="<?php echo $welcomeMessage; ?>"/>
 					</p>
 					<p>
 						<label for="clientDocumentation_items_number"><?php _e( 'Number of items displayed per page', 'clientDocumentation' ); ?></label><br />
@@ -673,13 +678,14 @@ class clientDocumentation {
 					Edit settings request
 				*/
 				
-				if(isset($_POST['cd_clientRole']) && isset($_POST['cd_widgetTitle']) && isset($_POST['cd_itemNumber'])){
+				if(isset($_POST['cd_clientRole'], $_POST['cd_widgetTitle'], $_POST['cd_itemNumber'], $_POST['cd_welcomeMessage'])){
 					
 					if(is_numeric($_POST['cd_itemNumber']))
 						update_option( 'clientDocumentation_itemNumber', $_POST['cd_itemNumber']);
 					
 					update_option( 'clientDocumentation_clientRole', $_POST['cd_clientRole']);
 					update_option( 'clientDocumentation_widgetTitle', $_POST['cd_widgetTitle']);
+					update_option( 'clientDocumentation_welcomeMessage', $_POST['cd_welcomeMessage']);
 					
 					$response = array(
 						'issue' => 'success',
@@ -840,6 +846,7 @@ class clientDocumentation {
 
 		$count_item = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->clientDocumentation ORDER BY ID DESC");
 		$nmb_setting = (get_option('clientDocumentation_itemNumber')) ? get_option('clientDocumentation_itemNumber') : 10;
+		$welcomeMessage = (get_option('clientDocumentation_welcomeMessage')) ? get_option('clientDocumentation_welcomeMessage') : __('Need Help ? All you need is here !','clientDocumentation');
 		
 		if(isset($_GET['cdp']) && is_numeric($_GET['cdp'])) $currentpage = $_GET['cdp'];
 		else $currentpage = 1;
@@ -849,7 +856,7 @@ class clientDocumentation {
 		$limit = $limitmin.', '.$nmb_setting;
 		
 		echo '<h4 class="cd_wdg_title first">' . __( 'Welcome', 'clientDocumentation' ) . '</h4>';
-		echo '<p>' . __( 'Need some help ? All resources you need is here !', 'clientDocumentation' ) . '</p>';
+		echo '<p>' . $welcomeMessage . '</p>';
 		
 		/* Pinned items section - Max: 3 */
 		$star_item_count = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->clientDocumentation WHERE etoile_b='1' ORDER BY ID DESC");

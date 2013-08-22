@@ -264,6 +264,9 @@
 .cd_edit_settings h2{
 	border-bottom: 1px solid #ccc;
 }
+.cd_edit_settings input{
+	width:70%;
+}
 
 .cd_credits{
 	border-top: 1px solid #eee;

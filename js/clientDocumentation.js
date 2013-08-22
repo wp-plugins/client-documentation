@@ -208,6 +208,7 @@ jQuery(document).ready(function($){
 		var cd = {};
 		cd.clientRole = $('#clientDocumentation_clientRole').val();
 		cd.widgetTitle = $('#clientDocumentation_widget_title').val();
+		cd.welcomeMessage = $('#clientDocumentation_welcomeMessage').val();
 		cd.itemNumber = $('#clientDocumentation_items_number').val();
 		
 		var data = {
@@ -215,6 +216,7 @@ jQuery(document).ready(function($){
 			cd_action: 'manage_settings',
 			cd_clientRole: cd.clientRole,
 			cd_widgetTitle : cd.widgetTitle,
+			cd_welcomeMessage: cd.welcomeMessage,
 			cd_itemNumber : cd.itemNumber
 		};
 	
