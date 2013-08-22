@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Client Documentation WP 1.0\n"
-"POT-Creation-Date: 2013-08-13 17:02+0100\n"
-"PO-Revision-Date: 2013-08-13 17:16+0100\n"
-"Last-Translator: \n"
-"Language-Team: Mathieu Hays <mathieu@mathieuhays.com>\n"
-"Language: English / Français\n"
+"Project-Id-Version: Simple documentation\n"
+"POT-Creation-Date: 2013-08-22 13:40+0100\n"
+"PO-Revision-Date: 2013-08-22 13:50+0100\n"
+"Last-Translator: Mathieu Hays <mathieu@mathieuhays.com>\n"
+"Language-Team: mathieu hays <mathieu@mathieuhays.co.uk>\n"
+"Language: EN/FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,248 +13,250 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: /Users/haysmathieu/Desktop/client-documentation\n"
+"X-Poedit-SearchPath-0: /Users/haysmathieu/Documents/repository/client-"
+"documentation/tags/1.0.3\n"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:82
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:87
 msgid "Following fields are missing :"
-msgstr "Vous n'avez pas renseigné les champs suivant :"
+msgstr "Les champs suivant sont vides :"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:83
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:88
 msgid "is missing !"
-msgstr "est manquant !"
+msgstr "est vide !"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:93
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:481
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:104
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:467
 msgid "Resources"
 msgstr "Ressources"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:185
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:198
 msgid "How to create your first post"
-msgstr "Comment créer votre premier article"
+msgstr "Comment créer son premier article"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:186
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:199
 msgid "Example of content"
 msgstr "Exemple de contenu"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:199
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:218
-msgid "Client Documentation"
-msgstr "Documentation Client"
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:212
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:261
+msgid "Simple Documentation"
+msgstr "Simple Documentation"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:200
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:213
 msgid "Documentation"
 msgstr "Documentation"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:231
-msgid "Settings updated."
-msgstr "Réglages mis à jour."
-
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:301
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:270
 msgid "Documentation list"
-msgstr "Liste de documents"
+msgstr "Liste de document"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:337
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:307
 msgid "Information"
 msgstr "Information"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:338
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:309
 msgid ""
 "Hit the add button to share advices and great links to your client directly "
 "on its interface."
 msgstr ""
-"Cliquez sur le bouton ajouter et partager des conseils et des liens de "
-"qualité avec vos clients directement sur leurs interface."
+"Cliquez sur le bouton \"ajouter\" pour partager des conseils et de bons "
+"liens à votre client directement depuis son interface."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:365
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:351
 msgid "Add new content"
-msgstr "Ajouter un nouveau contenu"
+msgstr "Ajouter un contenu"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:369
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:355
 msgid "Edit settings"
 msgstr "Modifier les réglages"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:386
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:372
 msgid "Video"
 msgstr "Vidéo"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:391
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:377
 msgid "Quick note"
-msgstr "Note courte"
+msgstr "Note rapide"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:396
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:382
 msgid "Link"
 msgstr "Lien"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:401
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:466
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:543
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:387
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:452
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:540
 msgid "Upload a file"
 msgstr "Charger un fichier"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:418
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:404
 msgid "Choose a type of document !"
 msgstr "Choisissez un type de document !"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:425
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:439
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:451
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:463
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:411
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:425
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:437
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:449
 msgid "Your title here ..."
 msgstr "Votre titre ici ..."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:427
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:413
 msgid "<embed code here/>"
-msgstr "Code <embed /> ici"
+msgstr "<code d'intégration ici/>"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:430
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:416
 msgid ""
 "Support &lt;iframe&gt; and &lt;a&gt; that is to say youtube, vimeo, "
 "screenr ..."
 msgstr ""
-"Compatible avec &lt;iframe&gt; et &lt;a&gt; donc avec Youtube, Vimeo, "
+"Compatible avec &lt;iframe&gt; et &lt;a&gt; c'est-à-dire Youtube, Vimeo, "
 "ScreenR ..."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:432
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:418
 msgid "Add a video"
 msgstr "Ajouter une vidéo"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:441
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:427
 msgid "Put here a quick note that will help your customer."
-msgstr "Mettez ici un texte court permettant d'aider votre client."
+msgstr "Mettez ici une note rapide qui aidera votre client."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:443
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:429
 msgid "Add a note"
 msgstr "Ajouter une note"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:454
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:440
 msgid "http://agencysite.com/tutorial/part-1"
-msgstr "http://monagence.fr/tutoriel/partie-1"
+msgstr "http://site-de-lagence.fr/tutoriel/partie1"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:456
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:442
 msgid "Add a link"
 msgstr "Ajouter un lien"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:465
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:542
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:451
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:539
 msgid "File path / url"
-msgstr "Chemin du fichier / url"
+msgstr "Chemin de fichier / URL"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:468
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:454
 msgid "Add a file"
 msgstr "Ajouter un fichier"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:488
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:470
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:849
+msgid "Need Help ? All you need is here !"
+msgstr "Besoin d'aide ? Tout ce dont vous avez besoin est ici !"
+
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:476
 msgid "Settings"
 msgstr "Réglages"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:494
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:481
 msgid "Define the client user role"
-msgstr "Définir quel rôle a le client"
+msgstr "Définissez le role du client"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:496
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:483
 msgid "Editor"
-msgstr "Éditeur"
+msgstr "Editeur"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:497
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:484
 msgid "Author"
 msgstr "Auteur"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:498
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:485
 msgid "Subscriber"
 msgstr "Abonné"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:502
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:495
 msgid "Widget title"
 msgstr "Titre du widget"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:506
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:499
+msgid "Welcome Message"
+msgstr "Message de bienvenue"
+
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:503
 msgid "Number of items displayed per page"
-msgstr "Nombre d'élement affichés par page"
+msgstr "Nombre d'éléments affiché par page"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:509
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:506
 msgid "Save"
-msgstr "Enregistrer"
+msgstr "Enregistré"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:523
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:520
 msgid "Edition"
-msgstr "Éditer"
+msgstr "Édition"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:528
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:525
 msgid "Title"
 msgstr "Titre"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:533
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:537
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:541
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:530
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:534
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:538
 msgid "Content"
 msgstr "Contenu"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:546
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:543
 msgid "Edit"
-msgstr "Éditer"
+msgstr "Modifier"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:619
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:622
 msgid "Error while adding your new document, please try again later."
-msgstr "Erreur lors de l'ajout du document, merci de ré-essayer plus tard."
+msgstr "Erreur lors de l'ajout du document, Merci d'essayer plus tard."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:653
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:658
 msgid "Error while deleting the entry. Please try again later."
-msgstr "Erreur lors de la suppression. Merci d'essayer plus tard."
+msgstr "Erreur lors de la suppression. Merci de ré-essayer plus tard."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:663
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:668
 msgid "Error on process"
-msgstr "Erreur lors de la requête"
+msgstr "Erreur lors de la requete."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:682
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:692
 msgid "Options updated"
-msgstr "Options mises à jour"
+msgstr "Réglages mis à jour"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:689
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:699
 msgid "One or more fields are missing !"
 msgstr "Un ou plusieurs champs sont manquant !"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:732
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:746
 msgid "Error !"
 msgstr "Erreur !"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:784
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:802
 msgid "Update error, please try again later."
-msgstr "Erreur d'édition, merci d'essayer plus tard."
+msgstr "Erreur lors de la modification, merci d'essayer plus tard."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:793
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:811
 msgid "Some fields are empty"
-msgstr "Des champs sont vides"
+msgstr "Certains champs sont vides"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:802
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:820
 msgid "Error while processing, Please try again later."
-msgstr "Erreur lors de la requête, merci d'essayer plus tard."
+msgstr "Erreur lors de la requete. Merci d'essayer plus tard."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:815
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:833
 msgid "Error, please contact the administrator."
-msgstr "Erreur, merci de contacter l'administrateur"
+msgstr "Erreur, merci de contacter l'administrateur."
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:845
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:858
 msgid "Welcome"
-msgstr "Bienvenu"
+msgstr "Bienvenue"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:846
-msgid "Need some help ? All resources you need is here !"
-msgstr "Besoin d'aide ? Toutes les ressources sont ici !"
-
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:855
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:867
 msgid "Pinned"
 msgstr "Marqué"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:865
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:893
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:877
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:917
 msgid "Open in a new tab"
 msgstr "Ouvre dans un nouvel onglet"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:869
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:897
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:881
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:921
 msgid "Click to view"
 msgstr "Cliquez pour voir"
 
-#: /Users/haysmathieu/Desktop/client-documentation/client-documentation.php:884
+#: /Users/haysmathieu/Documents/repository/client-documentation/tags/1.0.3/client-documentation.php:908
 msgid "All items"
-msgstr "Tous les éléments"
+msgstr "Tous les élements"

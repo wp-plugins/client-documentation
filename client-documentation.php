@@ -209,7 +209,7 @@ class clientDocumentation {
 	 */
 	public function register_page(){
 	    add_menu_page( 
-	    	__( 'Client Documentation' , 'clientDocumentation' ), 
+	    	__( 'Simple Documentation' , 'clientDocumentation' ), 
 	    	__( 'Documentation' , 'clientDocumentation' ), 
 	    	'manage_options', 
 	    	'clientDocumentation', 
@@ -258,7 +258,7 @@ class clientDocumentation {
 			if($this->check_user_role('administrator')){
 				
 				echo '<div id="icon-edit-pages" class="icon32"></div>';
-				echo '<h2>'.__('Client Documentation','clientDocumentation').'</h2>';
+				echo '<h2>'.__('Simple Documentation','clientDocumentation').'</h2>';
 				
 				$entries = $wpdb->get_results("SELECT * FROM $wpdb->clientDocumentation ORDER BY ID DESC");
 		
