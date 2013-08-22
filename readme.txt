@@ -25,6 +25,12 @@ As an administrator, you can add, edit or remove content, choose the number of i
 
 Backend Users and Administrators can pin items to highlight them.
 
+= Features on Development =
+
+* Multisite Support
+* Custom role Support
+* Custom welcome message
+
 == Installation ==
 
 The installation is not tricky. It's simple as activating the plugin and Add content !
