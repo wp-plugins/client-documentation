@@ -4,7 +4,7 @@ Donate link: http://mathieuhays.co.uk/
 Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,21 +21,25 @@ This plugins allows you to share 4 types of content:
 *   "Quick Note" This a short text which intend to help by giving a short tip! (for longer content use Links!)
 *   "File" Upload a file to the wordpress installation and display the link. (The file link can be filled manually if you upload content by FTP).
 
-As an administrator, you can add, edit or remove content, choose the number of items displayed per page in the widget, the client role and customize the widget title.
+As an administrator, you can add, edit or remove content, choose the number of items displayed per page in the widget, the targeted backend user role and customize the widget title and welcome message.
 
 Backend Users and Administrators can pin items to highlight them.
 
 = Features on Development =
 
 * Multisite Support
-* Custom role Support
-* Custom welcome message
 
 == Installation ==
 
 The installation is not tricky. It's simple as activating the plugin and Add content !
 
 == Changelog == 
+
+= 1.0.3 =
+
+* Add Welcome message customization
+* Custom role support
+
 = 1.0.1 =
 
 * Plugin's Name and Description Fix
