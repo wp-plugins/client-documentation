@@ -4,7 +4,7 @@ Donate link: http://mathieuhays.co.uk/
 Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,11 @@ Backend Users and Administrators can pin items to highlight them.
 The installation is not tricky. It's simple as activating the plugin and Add content !
 
 == Changelog == 
+
+= 1.0.4 = 
+
+* Welcome message now support HTML tags
+* Video height issue fixed
 
 = 1.0.3 =
 
