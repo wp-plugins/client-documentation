@@ -34,6 +34,10 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 
 == Changelog == 
 
+= 1.1.1 =
+
+* CSS version fix
+
 = 1.1.0 =
 
 * Multisite basic support
