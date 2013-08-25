@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.0.4
+Version: 1.1.0
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -40,7 +40,10 @@ class clientDocumentation {
 		/* Table Version */
 		define( 'CLIENTDOCUMENTATION', '1.0' );
 
-		$wpdb->clientDocumentation = $wpdb->prefix . 'clientDocumentation';
+    if(!get_site_option('clientDocumentation_table'))
+		  add_site_option( 'clientDocumentation_table', $wpdb->prefix . 'clientDocumentation' );
+
+    $wpdb->clientDocumentation = get_site_option('clientDocumentation_table');
 
 		//Activation
 		register_activation_hook( __FILE__, array( $this, 'install_tables' ), 10 );
@@ -53,12 +56,19 @@ class clientDocumentation {
 		add_action( 'admin_init' , array( $this , 'load_plugin_textdomain' ) );
 		add_action( 'admin_init' , array( $this , 'add_admin_styles' ) );
 		add_action( 'admin_init' , array( $this , 'add_admin_scripts' ) );
-		add_action( 'admin_menu' , array( $this , 'register_page' ) );
 		add_action( 'wp_ajax_cd_ajax' , array( $this , 'ajaxhandle' ) );
 		add_action( 'wp_dashboard_setup', array($this, 'add_dashboard') );
 
 		// Filters
 		add_filter( 'admin_body_class' , array( $this, 'admin_body_class') );
+
+    // MU support
+    if(is_multisite()){
+      add_action( 'network_admin_menu', array( $this, 'register_page' ));
+      add_action( 'wp_network_dashboard_setup', array($this, 'add_dashboard') );
+    }else{
+      add_action( 'admin_menu' , array( $this , 'register_page' ) );
+    }
 	}
 
 	/**
@@ -70,7 +80,7 @@ class clientDocumentation {
 	public function add_admin_styles() {
 		global $wp_styles;
 
-		wp_enqueue_style('clientDocumentation_Stylesheet', plugins_url('css/clientDocumentation.1.0.4.6.css', __FILE__) );
+		wp_enqueue_style('clientDocumentation_Stylesheet', plugins_url('css/clientDocumentation.css', __FILE__) );
 		wp_enqueue_style('font-awesome', plugins_url('css/font-awesome.min.css', __FILE__) );
 		wp_enqueue_style('font-awesome-ie7', plugins_url( '/css/font-awesome-ie7.min.css' ), __FILE__ );
   		$wp_styles->add_data( 'font-awesome-ie7', 'conditional', 'lte IE 7' );
@@ -102,8 +112,8 @@ class clientDocumentation {
     public function add_dashboard(){
 
     	// Get options saved by the administrator
-    	$widget_dn = (get_option('clientDocumentation_widgetTitle')) ? get_option( 'clientDocumentation_widgetTitle' ) : __('Resources', 'clientDocumentation');
-		$role = (get_option('clientDocumentation_clientRole')) ? get_option('clientDocumentation_clientRole') : 'Editor';
+    	$widget_dn = (get_option('clientDocumentation_widgetTitle')) ? stripslashes(get_option( 'clientDocumentation_widgetTitle' )) : __('Resources', 'clientDocumentation');
+		  $role = (get_option('clientDocumentation_clientRole')) ? get_option('clientDocumentation_clientRole') : 'Editor';
 
 		// Filter by role and apply custom title
 		if($this->check_user_role($role) || $this->check_user_role('administrator'))
@@ -114,7 +124,7 @@ class clientDocumentation {
      * Add body class on documentation page.
      */
     public function admin_body_class(){
-	    global $pagenow;
+	    global $pagenow,$classes;
 
 	    if(is_admin() && ($pagenow == 'admin.php' && $_GET['page'] == 'clientDocumentation' ))
 	    	return $classes .= 'clientDocumentation';
@@ -129,9 +139,15 @@ class clientDocumentation {
 	    $wpdb->query("DROP TABLE $wpdb->clientDocumentation");
 
 	    delete_option( 'clientDocumentation_clientRole' );
+      delete_option( 'clientDocumentation_dbVersion' );
 	    delete_option( 'clientDocumentation_widgetTitle' );
 	    delete_option( 'clientDocumentation_itemNumber' );
 	    delete_option( 'clientDocumentation_welcomeMessage' );
+      delete_option( 'clientDocumentation_welcomeTitle' );
+      delete_option( 'clientDocumentation_allitems' );
+      delete_option( 'clientDocumentation_pinned' );
+      delete_site_option( 'clientDocumentation_table' );
+
     }
 
     /**
@@ -356,6 +372,10 @@ class clientDocumentation {
 			<i class="icon-gear"></i><?php _e( 'Edit settings' , 'clientDocumentation' ); ?>
 		</a>
 
+    <a href="#TB_inline?width=350&height=550&inlineId=cd_import_export" class="thickbox button-secondary cd_open_modal" tabindex="2">
+			<i class="icon-gear"></i><?php _e( 'Import / Export' , 'clientDocumentation' ); ?>
+		</a>
+
 		<!--
 			[MODAL] Add content modal
 		-->
@@ -465,9 +485,12 @@ class clientDocumentation {
 		-->
 		<?php
 
-			$documentation = (get_option('clientDocumentation_widgetTitle')) ? get_option('clientDocumentation_widgetTitle') : __('Resources', 'clientDocumentation');
+			$documentation = (get_option('clientDocumentation_widgetTitle')) ? stripslashes(get_option('clientDocumentation_widgetTitle')) : __('Resources', 'clientDocumentation');
 			$itemNumber = (get_option('clientDocumentation_itemNumber')) ? get_option('clientDocumentation_itemNumber') : 10;
+      $welcomeTitle = (get_option('clientDocumentation_welcomeTitle')) ? stripslashes(get_option('clientDocumentation_welcomeTitle')) : __('Welcome','clientDocumentation');
 			$welcomeMessage = (get_option('clientDocumentation_welcomeMessage')) ? stripslashes(esc_html(get_option('clientDocumentation_welcomeMessage'))) : __('Need Help ? All you need is here !','clientDocumentation');
+      $allitems = (get_option('clientDocumentation_allitems')) ? stripslashes(get_option('clientDocumentation_allitems')) : __('All items','clientDocumentation');
+      $pinned = (get_option('clientDocumentation_pinned')) ? stripslashes(get_option('clientDocumentation_pinned')) : __('Pinned','clientDocumentation');
 
 		?>
 		<div class="cd_modal" id="cd_edit_settings" style="display:none">
@@ -477,32 +500,50 @@ class clientDocumentation {
 				<form method="post" name="clientDocumentation_form" action="">
 
 					<input type="hidden" name="clientDocumentation_sbtcr" value="CDMH"/>
-					<p>
-						<label for="clientDocumentation_clientRole"><?php _e( 'Define the client user role' , 'clientDocumentation' ); ?></label><br />
-						<select name="clientDocumentation_clientRole" id="clientDocumentation_clientRole">
-							<!--<option value="editor" <?php echo $this->checked( 'editor' ); ?>><?php _e( 'Editor' , 'clientDocumentation' ); ?></option>
-							<option value="author" <?php echo $this->checked( 'author' ); ?>><?php _e( 'Author' , 'clientDocumentation' ); ?></option>
-							<option value="subscriber" <?php echo $this->checked( 'subscriber' ); ?>><?php _e( 'Subscriber' , 'clientDocumentation' ); ?></option>-->
-							<?php
-								$roles = $wp_roles->roles;
-								foreach($roles as $srole => $vrole){
-									echo '<option value="'.$srole.'" '. $this->checked( $srole ) . '>'.$vrole['name'].'</option>';
-								}
-							?>
-						</select>
-					</p>
-					<p>
-						<label for="clientDocumentation_widget_title"><?php _e( 'Widget title', 'clientDocumentation' ); ?></label><br />
-						<input type="text" name="clientDocumentation_widget_title" id="clientDocumentation_widget_title" value="<?php echo $documentation; ?>"/>
-					</p>
+					<div class="cd_edition_div2 clearfix">
+            <p class="cd_one">
+              <label for="clientDocumentation_clientRole"><?php _e( 'Define the client user role' , 'clientDocumentation' ); ?></label><br />
+              <select name="clientDocumentation_clientRole" id="clientDocumentation_clientRole">
+                <!--<option value="editor" <?php echo $this->checked( 'editor' ); ?>><?php _e( 'Editor' , 'clientDocumentation' ); ?></option>
+                <option value="author" <?php echo $this->checked( 'author' ); ?>><?php _e( 'Author' , 'clientDocumentation' ); ?></option>
+                <option value="subscriber" <?php echo $this->checked( 'subscriber' ); ?>><?php _e( 'Subscriber' , 'clientDocumentation' ); ?></option>-->
+                <?php
+                  $roles = $wp_roles->roles;
+                  foreach($roles as $srole => $vrole){
+                    echo '<option value="'.$srole.'" '. $this->checked( $srole ) . '>'.$vrole['name'].'</option>';
+                  }
+                ?>
+              </select>
+					  </p>
+            <p class="cd_two">
+              <label for="clientDocumentation_items_number"><?php _e( 'Number of items displayed per page', 'clientDocumentation' ); ?></label><br />
+              <input type="text" name="clientDocumentation_items_number" id="clientDocumentation_items_number" value="<?php echo $itemNumber; ?>" />
+            </p>
+          </div>
+					<div class="cd_edition_div2 clearfix">
+            <p class="cd_one">
+						  <label for="clientDocumentation_widget_title"><?php _e( 'Widget title', 'clientDocumentation' ); ?></label><br />
+						  <input type="text" name="clientDocumentation_widget_title" id="clientDocumentation_widget_title" value="<?php echo $documentation; ?>"/>
+					  </p>
+            <p class="cd_two">
+              <label for="clientDocumentation_welcomeTitle"><?php _e( '"Welcome" title', 'clientDocumentation' ); ?></label><br />
+              <input type="text" name="clientDocumentation_welcomeTitle" id="clientDocumentation_welcomeTitle" value="<?php echo $welcomeTitle; ?>" />
+            </p>
+          </div>
 					<p>
 						<label for="clientDocumentation_welcomeMessage"><?php _e('Welcome Message','clientDocumentation'); ?></label><br />
 						<input type="text" name="clientDocumentation_welcomeMessage" id="clientDocumentation_welcomeMessage" value="<?php echo $welcomeMessage; ?>"/>
 					</p>
-					<p>
-						<label for="clientDocumentation_items_number"><?php _e( 'Number of items displayed per page', 'clientDocumentation' ); ?></label><br />
-						<input type="text" name="clientDocumentation_items_number" id="clientDocumentation_items_number" value="15" />
-					</p>
+					<div class="cd_edition_div2 clearfix">
+						<p class="cd_one">
+                <label for="clientDocumentation_pinned"><?php _e('"Pinned" title','clientDocumentation'); ?></label><br />
+                <input type="text" id="clientDocumentation_pinned" name="clientDocumentation_pinned" value="<?php echo $pinned; ?>" />
+            </p>
+            <p class="cd_two">
+                <label for="clientDocumentation_allitems"><?php _e('"All items" title','clientDocumentation'); ?></label><br />
+                <input type="text" id="clientDocumentation_allitems" name="clientDocumentation_allitems" value="<?php echo $allitems; ?>" />
+            </p>
+					</div>
 					<div class="button-primary setting_submit" id="cd_setting_submit"><?php _e( 'Save' , 'clientDocumentation' ); ?></div>
 
 				</form>
@@ -547,6 +588,28 @@ class clientDocumentation {
 			</div>
 
 		</div>
+
+    <div class="cd_modal" id="cd_import_export" style="display:none">
+
+			<div class="cd_import_export">
+				<div class="cd_import">
+          <h2><?php _e('Import','clientDocumentation'); ?></h2>
+          <textarea id="cd_import_content"></textarea><br />
+          <div class="button-secondary cd_import_button"><?php _e('Import','clientDocumentation'); ?></div>
+        </div><!-- .cd_import -->
+        <div class="cd_export">
+          <h2><?php _e('Export','clientDocumentation'); ?></h2>
+          <textarea id="cd_export_action"></textarea>
+          <div class="button-secondary cd_export_button"><?php _e('Generate','clientDocumentation'); ?></div>
+          <select id="cd_export_options">
+            <option value="options" selected><?php _e('Include options','clientDocumentation'); ?></option>
+            <option value="no-options"><?php _e('Exclude options','clientDocumentation'); ?></option>
+          </select>
+          <small><?php _e('if included, options will be overwritten','clientDocumentation'); ?></small>
+        </div><!-- .cd_export -->
+			</div>
+
+		</div><!-- end #cd_edit_settings .cd_modal -->
 
 		<?php
 	}
@@ -679,13 +742,16 @@ class clientDocumentation {
 				/*
 					Edit settings request
 				*/
-				if(isset($_POST['cd_clientRole'], $_POST['cd_widgetTitle'], $_POST['cd_itemNumber'], $_POST['cd_welcomeMessage'])){
+				if(isset($_POST['cd_clientRole'], $_POST['cd_widgetTitle'], $_POST['cd_itemNumber'], $_POST['cd_welcomeMessage'], $_POST['cd_welcomeTitle'], $_POST['cd_allitems'])){
 
 					if(is_numeric($_POST['cd_itemNumber']))
-						update_option( 'clientDocumentation_itemNumber', $_POST['cd_itemNumber']);
+					update_option( 'clientDocumentation_itemNumber', $_POST['cd_itemNumber']);
 					update_option( 'clientDocumentation_clientRole', $_POST['cd_clientRole']);
-					update_option( 'clientDocumentation_widgetTitle', $_POST['cd_widgetTitle']);
+					update_option( 'clientDocumentation_widgetTitle', sanitize_text_field($_POST['cd_widgetTitle']));
+          update_option( 'clientDocumentation_welcomeTitle', sanitize_text_field($_POST['cd_welcomeTitle']));
 					update_option( 'clientDocumentation_welcomeMessage', $_POST['cd_welcomeMessage']);
+          update_option( 'clientDocumentation_allitems', sanitize_text_field($_POST['cd_allitems']));
+          update_option( 'clientDocumentation_pinned' , sanitize_text_field($_POST['cd_pinned']));
 
 					$response = array(
 						'issue' => 'success',
@@ -825,6 +891,73 @@ class clientDocumentation {
 				echo json_encode($response);
 				die();
 
+    }elseif($_POST['cd_action'] == 'export'){
+
+        if(isset($_POST['cd_spec']) && $_POST['cd_spec'] == 'no-options'){ $options = false; }
+        else{
+
+          $options = array();
+          $options_q = array( 'itemNumber','clientRole','widgetTitle','welcomeTitle','welcomeMessage','allitems','pinned' );
+
+          foreach($options_q as $opt){
+            $options[$opt] = (get_option('clientDocumentation_' . $opt)) ? get_option('clientDocumentation_' . $opt) : false;
+          }
+        }
+
+        $items = array();
+        $item_r = array('type','title','content','etoile_b','etoile_t');
+
+        $query = $wpdb->get_results("SELECT * FROM $wpdb->clientDocumentation ORDER BY ID ASC");
+        foreach($query as $q){
+          $data = array();
+
+          foreach($item_r as $r){
+            if(in_array($r,array('title','content')))
+               $data[$r] = stripslashes($q->$r);
+            else
+               $data[$r] = $q->$r;
+          }
+
+          $items[$q->ID] = $data;
+        }
+
+
+
+        echo json_encode( array( 'options' => $options, 'items' => $items ) );
+        die();
+
+    }elseif($_POST['cd_action'] == 'import'){
+
+        $table_name = $wpdb->clientDocumentation;
+        $data = json_decode(stripslashes($_POST['cd_content']));
+        $error = 0;
+
+        if($data->options != false){
+          $opts = array('itemNumber','clientRole','widgetTitle','welcomeTitle','welcomeMessage','allitems','pinned');
+          foreach($opts as $opt){
+            if($data->options->$opt != false)
+              update_option('clientDocumentation_' . $opt, $data->options->$opt);
+          }
+        }
+
+        foreach($data->items as $item){
+
+
+          $data = array(
+            'type' => $item->type,
+            'title' => $item->title,
+            'content' => $item->content,
+            'etoile_b' => $item->etoile_b,
+            'etoile_t' => $item->etoile_t
+          );
+          if(!$wpdb->insert($table_name, $data))
+            $error++;
+
+        }
+
+        if($error!=0) echo __('Import error','clientDocumentation');
+        else echo __('Import completed','clientDocumentation');
+        die();
 
 		}else{
 
@@ -846,7 +979,10 @@ class clientDocumentation {
 
 		$count_item = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->clientDocumentation ORDER BY ID DESC");
 		$nmb_setting = (get_option('clientDocumentation_itemNumber')) ? get_option('clientDocumentation_itemNumber') : 10;
-		$welcomeMessage = (get_option('clientDocumentation_welcomeMessage')) ? stripslashes(get_option('clientDocumentation_welcomeMessage')) : __('Need Help ? All you need is here !','clientDocumentation');
+		$welcomeTitle = (get_option('clientDocumentation_welcomeTitle')) ? stripslashes(get_option('clientDocumentation_welcomeTitle')) : __('Welcome','clientDocumentation');
+    $welcomeMessage = (get_option('clientDocumentation_welcomeMessage')) ? stripslashes(get_option('clientDocumentation_welcomeMessage')) : __('Need Help ? All you need is here !','clientDocumentation');
+    $allitems = (get_option('clientDocumentation_allitems')) ? stripslashes(get_option('clientDocumentation_allitems')) : __('All items','clientDocumentation');
+    $pinned = (get_option('clientDocumentation_pinned')) ? stripslashes(get_option('clientDocumentation_pinned')) : __('Pinned','clientDocumentation');
 
 		if(isset($_GET['cdp']) && is_numeric($_GET['cdp'])) $currentpage = $_GET['cdp'];
 		else $currentpage = 1;
@@ -855,7 +991,7 @@ class clientDocumentation {
 		$limitmin = ( $currentpage * $nmb_setting ) - $nmb_setting;
 		$limit = $limitmin.', '.$nmb_setting;
 
-		echo '<h4 class="cd_wdg_title first">' . __( 'Welcome', 'clientDocumentation' ) . '</h4>';
+		echo '<h4 class="cd_wdg_title first">' . $welcomeTitle . '</h4>';
 		echo '<p>' . $welcomeMessage . '</p>';
 
 		/* Pinned items section - Max: 3 */
@@ -864,7 +1000,7 @@ class clientDocumentation {
 		if($star_item_count != 0){
 
 			$item_s = $wpdb->get_results("SELECT * FROM $wpdb->clientDocumentation WHERE etoile_b='1' ORDER BY etoile_t DESC LIMIT 0,3");
-			echo '<h4 class="cd_wdg_title">'.__('Pinned','clientDocumentation').' :</h4>';
+			echo '<h4 class="cd_wdg_title">' . $pinned . ' :</h4>';
 			echo '<ul class="cd_client_star">';
 
 			foreach($item_s as $s){
@@ -873,13 +1009,13 @@ class clientDocumentation {
 
 				if( in_array($s->type, array('link','file')) ){
 				echo '<h5><i class="icon-star cd_star cdpin" data-itemid="' . $s->ID . '"></i>';
-				echo '<i class="icon-' . $this->icon($s->type) . '"></i> <a href="' . $s->content . '" target="_blank">' . $s->title . '</a>';
+				echo '<i class="icon-' . $this->icon($s->type) . '"></i> <a href="' . $s->content . '" target="_blank">' . stripslashes($s->title) . '</a>';
 				echo '<span class="cd_expand_hover">' . __( 'Open in a new tab', 'clientDocumentation' ) . '</span></h5>';
 			}
 			else{
 				echo '<h5 class="cd_widget_title"><i class="icon-star cd_star cdpin" data-itemid="' . $s->ID . '"></i>';
-				echo '<i class="icon-' . $this->icon($s->type) . '"></i> ' . $s->title . ' <span class="cd_expand_hover">' . __( 'Click to view', 'clientDocumentation' ) . '</span></h5>';
-				echo '<div class="cd_widget_content"><p>' . $s->content . '</p></div>';
+				echo '<i class="icon-' . $this->icon($s->type) . '"></i> ' . stripslashes($s->title) . ' <span class="cd_expand_hover">' . __( 'Click to view', 'clientDocumentation' ) . '</span></h5>';
+				echo '<div class="cd_widget_content"><p>' . stripslashes($s->content) . '</p></div>';
 			}
 
 				echo '</li>';
@@ -905,7 +1041,7 @@ class clientDocumentation {
 
 		$entries = $wpdb->get_results("SELECT * FROM $wpdb->clientDocumentation ORDER BY ID DESC LIMIT ".$limit);
 
-		echo '<h4 class="cd_wdg_title">'.__('All items','clientDocumentation').'</h4>';
+		echo '<h4 class="cd_wdg_title">'. $allitems .'</h4>';
 		echo '<ul class="cd_client_list">';
 		foreach($entries as $data){
 
@@ -913,13 +1049,13 @@ class clientDocumentation {
 			$clstar = ($data->etoile_b == 0) ? '-empty' : '';
 			if( in_array($data->type, array('link','file')) ){
 				echo '<h5><i class="icon-star'.$clstar.' cd_star cdpin" data-itemid="'. $data->ID .'"></i>';
-				echo '<i class="icon-' . $this->icon($data->type) . '"></i> <a href="' . $data->content . '" target="_blank">' . $data->title . '</a>';
+				echo '<i class="icon-' . $this->icon($data->type) . '"></i> <a href="' . $data->content . '" target="_blank">' . stripslashes($data->title) . '</a>';
 				echo '<span class="cd_expand_hover">' . __( 'Open in a new tab', 'clientDocumentation' ) . '</span></h5>';
 			}
 			else{
 				echo '<h5 class="cd_widget_title"><i class="icon-star'.$clstar.' cd_star cdpin" data-itemid="' . $data->ID . '"></i>';
-				echo '<i class="icon-' . $this->icon($data->type) . '"></i> ' . $data->title . ' <span class="cd_expand_hover">' . __( 'Click to view', 'clientDocumentation' ) . '</span></h5>';
-				echo '<div class="cd_widget_content"><p>' . $data->content . '</p></div>';
+				echo '<i class="icon-' . $this->icon($data->type) . '"></i> ' . stripslashes($data->title) . ' <span class="cd_expand_hover">' . __( 'Click to view', 'clientDocumentation' ) . '</span></h5>';
+				echo '<div class="cd_widget_content"><p>' . stripslashes($data->content) . '</p></div>';
 			}
 			echo '</li>';
 

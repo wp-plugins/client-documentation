@@ -1,7 +1,7 @@
 === Simple Documentation ===
 Contributors: mathieuhays
 Donate link: http://mathieuhays.co.uk/
-Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed
+Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed,multisite
 Requires at least: 3.0.1
 Tested up to: 3.6
 Stable tag: 1.0.4
@@ -25,15 +25,21 @@ As an administrator, you can add, edit or remove content, choose the number of i
 
 Backend Users and Administrators can pin items to highlight them.
 
-= Features on Development =
-
-* Multisite Support
+Multisite support.
+Import/export feature.
 
 == Installation ==
 
 The installation is not tricky. It's simple as activating the plugin and Add content !
 
 == Changelog == 
+
+= 1.1.0 =
+
+* Multisite basic support
+* Import / Export feature added
+* String issues fixed.
+* Welcome, Pinned and All items customization added.
 
 = 1.0.4 = 
 
