@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.1.0
+Version: 1.1.1
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -80,7 +80,7 @@ class clientDocumentation {
 	public function add_admin_styles() {
 		global $wp_styles;
 
-		wp_enqueue_style('clientDocumentation_Stylesheet', plugins_url('css/clientDocumentation.css', __FILE__) );
+		wp_enqueue_style('clientDocumentation_Stylesheet', plugins_url('css/clientDocumentation.css', __FILE__),array(),'1.1.1' );
 		wp_enqueue_style('font-awesome', plugins_url('css/font-awesome.min.css', __FILE__) );
 		wp_enqueue_style('font-awesome-ie7', plugins_url( '/css/font-awesome-ie7.min.css' ), __FILE__ );
   		$wp_styles->add_data( 'font-awesome-ie7', 'conditional', 'lte IE 7' );
