@@ -25,14 +25,27 @@ As an administrator, you can add, edit or remove content, choose the number of i
 
 Backend Users and Administrators can pin items to highlight them.
 
-Multisite support.
-Import/export feature.
+= Features = 
+
+* Multisite support
+* Import / Export
+
+= Languages = 
+
+* English
+* French
+* Spanish (thanks to [Sugartoys](sugartoys.net))
 
 == Installation ==
 
 The installation is not tricky. It's simple as activating the plugin and Add content !
 
 == Changelog == 
+
+= 1.1.2 = 
+
+* MP6 optimization on modal box
+* Cache issue fix
 
 = 1.1.1 =
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Documentation\n"
-"POT-Creation-Date: 2013-08-27 12:40+0100\n"
-"PO-Revision-Date: 2013-08-27 12:41+0100\n"
+"POT-Creation-Date: 2013-08-27 12:43+0100\n"
+"PO-Revision-Date: 2013-08-27 12:44+0100\n"
 "Last-Translator: Mathieu HAYS <mathieu@mathieuhays.co.uk>\n"
 "Language-Team: mathieu HAYS <mathieu@mathieuhays.co.uk>\n"
 "Language: FR/EN\n"
@@ -18,297 +18,302 @@ msgstr ""
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:98
 msgid "Following fields are missing :"
-msgstr ""
+msgstr "Faltan los siguientes campos :"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:99
 msgid "is missing !"
-msgstr ""
+msgstr "¡falta!"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:115
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:488
 msgid "Resources"
-msgstr ""
+msgstr "Recursos"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:215
 msgid "How to create your first post"
-msgstr ""
+msgstr "Como crear tu primer articulo"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:216
 msgid "Example of content"
-msgstr ""
+msgstr "Contenido de ejemplo"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:229
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:278
 msgid "Simple Documentation"
-msgstr ""
+msgstr "Documentación Simple"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:230
 msgid "Documentation"
-msgstr ""
+msgstr "Documentación"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:287
 msgid "Documentation list"
-msgstr ""
+msgstr "Lista de documentación"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:324
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:326
 msgid ""
 "Hit the add button to share advices and great links to your client directly "
 "on its interface."
 msgstr ""
+"Presiona el botón de añadir para compartir consejos y grandiosos enlaces con "
+"tus clientes en el interface."
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:368
 msgid "Add new content"
-msgstr ""
+msgstr "Añade nuevo contenido"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:372
 msgid "Edit settings"
-msgstr ""
+msgstr "Edita los ajustes"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:376
 msgid "Import / Export"
-msgstr ""
+msgstr "Imparta / Exporta"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:393
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:398
 msgid "Quick note"
-msgstr ""
+msgstr "Nota rápida"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:403
 msgid "Link"
-msgstr ""
+msgstr "Enlace"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:408
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:473
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:581
 msgid "Upload a file"
-msgstr ""
+msgstr "Carga un archivo"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:425
 msgid "Choose a type of document !"
-msgstr ""
+msgstr "Escoge un tipo de documento !"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:432
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:446
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:458
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:470
 msgid "Your title here ..."
-msgstr ""
+msgstr "Tu titulo aquí …"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:434
 msgid "<embed code here/>"
-msgstr ""
+msgstr "<ingrese código aquí/>"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:437
 msgid ""
 "Support &lt;iframe&gt; and &lt;a&gt; that is to say youtube, vimeo, "
 "screenr ..."
 msgstr ""
+"Compatible &lt;iframe&gt; y &lt;a&gt; como para digamos, youtube, vimeo, "
+"screenr …"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:439
 msgid "Add a video"
-msgstr ""
+msgstr "Añade un video"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:448
 msgid "Put here a quick note that will help your customer."
-msgstr ""
+msgstr "Ponga aquí una nota rápida que pueda ayudar su cliente."
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:450
 msgid "Add a note"
-msgstr ""
+msgstr "Añade una nota"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:461
 msgid "http://agencysite.com/tutorial/part-1"
-msgstr ""
+msgstr "http://agencysite.com/tutorial/part-1"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:463
 msgid "Add a link"
-msgstr ""
+msgstr "Añade un enlace"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:472
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:580
 msgid "File path / url"
-msgstr ""
+msgstr "Ruta de archivo / url"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:475
 msgid "Add a file"
-msgstr ""
+msgstr "Añade un archivo"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:490
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:982
 msgid "Welcome"
-msgstr ""
+msgstr "Bienvenido"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:491
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:983
 msgid "Need Help ? All you need is here !"
-msgstr ""
+msgstr "¿Necesita Ayuda? ¡Todo lo que usted necesita esta aquí!"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:492
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:984
 msgid "All items"
-msgstr ""
+msgstr "Todo los artículos"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:493
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:985
 msgid "Pinned"
-msgstr ""
+msgstr "Marcado"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:499
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:505
 msgid "Define the client user role"
-msgstr ""
+msgstr "Defina el rol de usuario del cliente"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:507
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:508
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:509
 msgid "Subscriber"
-msgstr ""
+msgstr "Suscriptor"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:519
 msgid "Number of items displayed per page"
-msgstr ""
+msgstr "Numero de artículos mostrados por pagina"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:525
 msgid "Widget title"
-msgstr ""
+msgstr "Titulo de widget"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:529
 msgid "\"Welcome\" title"
-msgstr ""
+msgstr "\"Bienvenido\" titulo"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:534
 msgid "Welcome Message"
-msgstr ""
+msgstr "Mensaje de Bienvenida"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:539
 msgid "\"Pinned\" title"
-msgstr ""
+msgstr "\"Marcado\" titulo"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:543
 msgid "\"All items\" title"
-msgstr ""
+msgstr "\"Todos los artículos\" titulo"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:547
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:561
 msgid "Edition"
-msgstr ""
+msgstr "Edición"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:566
 msgid "Title"
-msgstr ""
+msgstr "Titulo"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:571
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:575
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:579
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:584
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:596
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:598
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:601
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:603
 msgid "Generate"
-msgstr ""
+msgstr "Generar"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:605
 msgid "Include options"
-msgstr ""
+msgstr "Incluir opciones"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:606
 msgid "Exclude options"
-msgstr ""
+msgstr "Excluir opciones"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:608
 msgid "if included, options will be overwritten"
-msgstr ""
+msgstr "si se incluye, las opciones serán sobrescritas"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:687
 msgid "Error while adding your new document, please try again later."
 msgstr ""
+"Error mientras añadía su nuevo documento, por favor intente nuevamente luego."
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:723
 msgid "Error while deleting the entry. Please try again later."
-msgstr ""
+msgstr "Error mientras borraba la entrada. Por favor intente nuevamente luego."
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:733
 msgid "Error on process"
-msgstr ""
+msgstr "Error procesando"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:758
 msgid "Options updated"
-msgstr ""
+msgstr "Opciones  actualizadas"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:765
 msgid "One or more fields are missing !"
-msgstr ""
+msgstr "¡Uno o mas de un campo están vacíos!"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:812
 msgid "Error !"
-msgstr ""
+msgstr "¡Error!"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:868
 msgid "Update error, please try again later."
-msgstr ""
+msgstr "Error actualizando, por favor trate nuevamente luego."
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:877
 msgid "Some fields are empty"
-msgstr ""
+msgstr "Algunos campos están vacíos"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:886
 msgid "Error while processing, Please try again later."
-msgstr ""
+msgstr "Error mientras procesaba, Por favor trate nuevamente luego."
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:958
 msgid "Import error"
-msgstr ""
+msgstr "Error importando"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:959
 msgid "Import completed"
-msgstr ""
+msgstr "Importación completada"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:966
 msgid "Error, please contact the administrator."
-msgstr ""
+msgstr "Error, por favor contacte al administrador."
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:1013
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:1053
 msgid "Open in a new tab"
-msgstr ""
+msgstr "Abra en un nuevo pestaña"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:1017
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:1057
 msgid "Click to view"
-msgstr ""
+msgstr "Click para ver"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:1068
 msgid "Pages"
-msgstr ""
+msgstr "Páginas"

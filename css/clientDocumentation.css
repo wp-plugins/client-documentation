@@ -257,10 +257,21 @@
 	bottom: 0;
 	right:0;
 }
-
+#cd_video p{
+  padding:0 !important;
+}
+.mp6 #cd_button_file{
+  width:18.5% !important;
+}
 
 .cd_edit_settings{
 	padding:5%;
+}
+.mp6 .cd_edit_settings{
+  padding:3% 4% !important;
+}
+.mp6 .cd_edit_settings p{
+  padding:0 !important;
 }
 .cd_edit_settings h2{
 	border-bottom: 1px solid #ccc;
@@ -300,6 +311,7 @@
 	font-weight: bold;
 	margin:30px 0 0 0 !important;
 	border-bottom: 1px solid #ccc;
+  padding-bottom:10px;
 }
 .cd_wdg_title.first{
 	margin:20px 0 0 0 !important;
@@ -447,8 +459,8 @@
 .cd_import_export{
   padding:6% 4%;
 }
-.cd_import_export .cd_import{
-
+.mp6 .cd_import_export{
+  padding:3% 4%;
 }
 .cd_import_export .cd_import textarea{
   width:90%;
