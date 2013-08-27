@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.1.1
+Version: 1.1.2
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -80,7 +80,7 @@ class clientDocumentation {
 	public function add_admin_styles() {
 		global $wp_styles;
 
-		wp_enqueue_style('clientDocumentation_Stylesheet', plugins_url('css/clientDocumentation.css', __FILE__),array(),'1.1.1' );
+		wp_enqueue_style('clientDocumentation_Stylesheet', plugins_url('css/clientDocumentation.css', __FILE__),array(),'1.1.2' );
 		wp_enqueue_style('font-awesome', plugins_url('css/font-awesome.min.css', __FILE__) );
 		wp_enqueue_style('font-awesome-ie7', plugins_url( '/css/font-awesome-ie7.min.css' ), __FILE__ );
   		$wp_styles->add_data( 'font-awesome-ie7', 'conditional', 'lte IE 7' );
@@ -100,7 +100,7 @@ class clientDocumentation {
 		);
 
         if($pagenow == 'index.php' || ($pagenow == 'admin.php' && $_GET['page'] == 'clientDocumentation' )){
-	        wp_enqueue_script( 'clientDocumentation_js', plugins_url( '/js/clientDocumentation.js' , __FILE__ ), array( 'jquery' ));
+	        wp_enqueue_script( 'clientDocumentation_js', plugins_url( '/js/clientDocumentation.js' , __FILE__ ), array( 'jquery' ),'1.1.2');
 	        wp_localize_script( 'clientDocumentation_js', 'ajax_object', $local );
 	        wp_enqueue_media();
         }
@@ -300,8 +300,8 @@ class clientDocumentation {
 									<i class="icon-<?php echo $this->icon($data->type); ?>"></i>
 									<span class="cd_list_title"><?php echo stripslashes($data->title); ?></span>
 									<span class="cd_field_action">
-										<a href="#TB_inline?width=350&height=550&inlineId=cd_edit_field" class="thickbox edit_field" data-itemid="<?php echo $data->ID; ?>" data-itemtype="<?php echo $data->type; ?>"><i class="icon-pencil"></i></a>
-										<i class="icon-remove remove_field" data-itemid="<?php echo $data->ID; ?>"></i>
+										<a href="#TB_inline?width=350&height=550&inlineId=cd_edit_field" class="thickbox edit_field" data-itemid="<?php echo $data->ID; ?>" data-itemtype="<?php echo $data->type; ?>" title="Edit: <?php echo esc_html(stripslashes($data->title)); ?>"><i class="icon-pencil"></i></a>
+										<i class="icon-remove remove_field" data-itemid="<?php echo $data->ID; ?>" title="Remove: <?php echo esc_html(stripslashes($data->title)); ?>"></i>
 									</span>
 								</div>
 								<div class="cd_expand"><?php echo stripslashes($data->content); ?></div>
@@ -1065,7 +1065,7 @@ class clientDocumentation {
 		/* Pagination */
 		if($nombredepages != 1){
 			echo "<ul class='cd_page'>";
-			echo "<li>Pages:</li>";
+			echo "<li>".__('Pages','clientDocumentation').":</li>";
 			for($i=1;$i<=$nombredepages;$i++){
 				echo '<li><a href="?cdp='.$i.'"';
 				if($currentpage == $i) echo ' class="cd_current"';
