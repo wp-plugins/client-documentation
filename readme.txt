@@ -4,7 +4,7 @@ Donate link: http://mathieuhays.co.uk/
 Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed,multisite
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,7 +34,7 @@ Backend Users and Administrators can pin items to highlight them.
 
 * English
 * French
-* Spanish (thanks to [Sugartoys](sugartoys.net))
+* Spanish (thanks to [Sugartoys](http://sugartoys.net))
 
 == Installation ==
 
