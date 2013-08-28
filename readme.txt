@@ -4,7 +4,7 @@ Donate link: http://mathieuhays.co.uk/
 Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed,multisite
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,7 +86,7 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 * Initial Version
 
 == Upgrade Notice ==
-Keep this plugin up to date by updating it now !
+New update available ! 
 
  == Frequently Asked Questions ==
 =  What's happenning when I delete this plugin ? =
