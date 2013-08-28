@@ -34,7 +34,7 @@ Backend Users and Administrators can pin items to highlight them.
 
 * English
 * French
-* Spanish (thanks to [Sugartoys](sugartoys.net))
+* Spanish (thanks to [Sugartoys](http://sugartoys.net))
 
 == Installation ==
 
