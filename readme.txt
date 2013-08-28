@@ -34,13 +34,18 @@ Backend Users and Administrators can pin items to highlight them.
 
 * English
 * French
-* Spanish (thanks to [Sugartoys](http://sugartoys.net))
+* Spanish (thanks to [Sugartoys](sugartoys.net))
 
 == Installation ==
 
 The installation is not tricky. It's simple as activating the plugin and Add content !
 
 == Changelog == 
+
+= 1.1.3 = 
+
+* Field edition fix.
+* Basic html support added to quick note content. (a,strong,b,em,i)
 
 = 1.1.2 = 
 

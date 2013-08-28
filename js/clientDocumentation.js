@@ -126,10 +126,13 @@ jQuery(document).ready(function($){
 				// reset
 				var elements = ['video','note','link','file'];
 				for(var i=0;i<elements.length;i++){
-					$('.cd_tick_'+elements[i]).removeClass('active');
+					$('#cd_tick_'+elements[i]).removeClass('active');
 					$('#cd_title_'+elements[i]).val('');
 					$('#cd_content_'+elements[i]).val('');
+          $('#cd_'+elements[i]).hide();
 				}
+
+        $('.cd_default').show();
 
 
 
@@ -258,58 +261,70 @@ jQuery(document).ready(function($){
 
 	/* -- FIELD EDITION MODAL -- */
 
-	$( '.edit_field' ).on( 'click' , function(){
-		// Reset
-		$( '#cd_edit_textarea' ).hide(0);
-		$( '#cd_edit_file' ).hide(0);
-		$( '#cd_edit_text' ).hide(0);
-		$( '#cd_edit_textarea' ).val('');
-		$( '#cd_edit_file' ).val('');
-		$( '#cd_edit_text' ).val('');
-		$( '#cd_edit_title' ).val('');
+	$( '.cd-list' ).on( 'click', '.edit_field' , function(){
 
-		var li = $(this).parent().parent(),
-			type = $(this).data( 'itemtype' );
+    $( '#cd_edit_textarea' ).hide(0);
+    $( '#cd_edit_file' ).hide(0);
+    $( '#cd_edit_text' ).hide(0);
+    $( '#cd_edit_textarea' ).val('');
+    $( '#cd_edit_file' ).val('');
+    $( '#cd_edit_text' ).val('');
+    $( '#cd_edit_title' ).val('');
+    $( '#cd_edition_submit' ).attr('data-itemid',0);
+    $( '#cd_edition_submit' ).attr('data-itemtype',0);
 
-		$( '#cd_edit_title' ).val( li.children( '.cd_list_title' ).html() );
-		$( '#cd_edit_content' ).val( li.children( '.cd_expand' ).html());
 
-		if( type == 'note' || type == 'video' ){
-			$( '#cd_edit_textarea' ).show();
-			$( '#cd_edit_content_textarea' ).val( li.parent('li').children( '.cd_expand' ).html() );
+    var edit_id = $(this).data('itemid');
+    var edit_type = $(this).data('itemtype');
+    console.log(edit_id+'::'+edit_type);
 
-		}else if( type == 'file' ){
-			$( '#cd_edit_file' ).show();
-			$( '#cd_edit_content_file' ).val( li.parent('li').children( '.cd_expand' ).html() );
+    var edit_li = $('#cd_list_'+edit_id);
+    console.log(edit_li);
 
-		}else{
-			$( '#cd_edit_text' ).show();
-			$( '#cd_edit_content_text' ).val( li.parent('li').children( '.cd_expand' ).html() );
-		}
+    $('#cd_edition_submit').attr('data-itemid', edit_id);
+    $('#cd_edition_submit').attr('data-itemtype', edit_type);
+    $( '#cd_edit_title' ).val( edit_li.children('.cd_title').children( '.cd_list_title' ).html() );
 
-		var edit = {};
-		edit.itemid = $(this).data( 'itemid' );
+    if(edit_type == 'note' || edit_type == 'video'){
+      $( '#cd_edit_textarea' ).show();
+      $( '#cd_edit_content_textarea' ).val( edit_li.children( '.cd_expand' ).html() );
+    }else if( edit_type == 'file' ){
+      $( '#cd_edit_file' ).show();
+      $( '#cd_edit_content_file' ).val( edit_li.children( '.cd_expand' ).html() );
+    }else{
+      $( '#cd_edit_text' ).show();
+      $( '#cd_edit_content_text' ).val( edit_li.children( '.cd_expand' ).html() );
+    }
 
-		$( '.edition_submit' ).on( 'click' , function(){
-
-			edit.title = $( '#cd_edit_title' ).val();
-
-			if(type == 'note' || type == 'video') edit.content = $('#cd_edit_content_textarea').val();
-			else if(type == 'file') edit.content = $('#cd_edit_content_file').val();
-			else edit.content = $('#cd_edit_content_text').val();
-
-			var data = {
-				action: 'cd_ajax',
-				cd_action: 'edit_field',
-				cd_itemid: edit.itemid,
-				cd_title: edit.title,
-				cd_content: edit.content,
-				cd_type: type
-			};
-
-			jQuery.post( ajax_object.ajax_url , data , function(response){ edit_response(response) });
-		});
 	});
+
+  $('.edition_submit').on('click', function(){
+
+    var edit_id = $('#cd_edition_submit').attr('data-itemid');
+    console.log('si:'+edit_id);
+
+    var edit_type = $('#cd_edition_submit').attr('data-itemtype');
+    console.log('st:'+edit_type);
+
+    var edit_title = $('#cd_edit_title').val();
+
+    if(edit_type == 'note' || edit_type == 'video') var edit_content = $('#cd_edit_content_textarea').val();
+    else if(edit_type == 'file') var edit_content = $('#cd_edit_content_file').val();
+      else var edit_content = $('#cd_edit_content_text').val();
+
+    var data = {
+      action: 'cd_ajax',
+      cd_action: 'edit_field',
+      cd_itemid: edit_id,
+      cd_title: edit_title,
+      cd_content: edit_content,
+      cd_type: edit_type
+    };
+
+    jQuery.post( ajax_object.ajax_url , data , function(response){ edit_response(response) });
+
+  });
+
 
 	// Handle field change
 	function edit_response(response){

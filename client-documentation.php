@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.1.2
+Version: 1.1.3
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -38,7 +38,9 @@ class clientDocumentation {
 		global $wpdb;
 
 		/* Table Version */
-		define( 'CLIENTDOCUMENTATION', '1.0' );
+		define( 'SMPLDCMTNTBL', '1.0' );
+    define( 'SMPLDCMTNVRS', '1.1.3' );
+
 
     if(!get_site_option('clientDocumentation_table'))
 		  add_site_option( 'clientDocumentation_table', $wpdb->prefix . 'clientDocumentation' );
@@ -80,7 +82,7 @@ class clientDocumentation {
 	public function add_admin_styles() {
 		global $wp_styles;
 
-		wp_enqueue_style('clientDocumentation_Stylesheet', plugins_url('css/clientDocumentation.css', __FILE__),array(),'1.1.2' );
+		wp_enqueue_style('clientDocumentation_Stylesheet', plugins_url('css/clientDocumentation.css', __FILE__),array(), SMPLDCMTNVRS );
 		wp_enqueue_style('font-awesome', plugins_url('css/font-awesome.min.css', __FILE__) );
 		wp_enqueue_style('font-awesome-ie7', plugins_url( '/css/font-awesome-ie7.min.css' ), __FILE__ );
   		$wp_styles->add_data( 'font-awesome-ie7', 'conditional', 'lte IE 7' );
@@ -100,7 +102,7 @@ class clientDocumentation {
 		);
 
         if($pagenow == 'index.php' || ($pagenow == 'admin.php' && $_GET['page'] == 'clientDocumentation' )){
-	        wp_enqueue_script( 'clientDocumentation_js', plugins_url( '/js/clientDocumentation.js' , __FILE__ ), array( 'jquery' ),'1.1.2');
+	        wp_enqueue_script( 'clientDocumentation_js', plugins_url( '/js/clientDocumentation.js' , __FILE__ ), array( 'jquery' ), SMPLDCMTNVRS);
 	        wp_localize_script( 'clientDocumentation_js', 'ajax_object', $local );
 	        wp_enqueue_media();
         }
@@ -388,22 +390,22 @@ class clientDocumentation {
 
 				<ul class="clearfix">
 
-					<li class="cd_tick_video" tabindex="3">
+					<li class="cd_tick_video" id="cd_tick_video" tabindex="3">
 						<i class="icon-youtube-play"></i>
 						<?php _e( 'Video' , 'clientDocumentation' ); ?>
 					</li>
 
-					<li class="cd_tick_note" tabindex="7">
+					<li class="cd_tick_note" id="cd_tick_note" tabindex="7">
 						<i class="icon-comment-alt"></i>
 						<?php _e( 'Quick note' , 'clientDocumentation' ); ?>
 					</li>
 
-					<li class="cd_tick_link" tabindex="11">
+					<li class="cd_tick_link" id="cd_tick_link" tabindex="11">
 						<i class="icon-link"></i>
 						<?php _e( 'Link' , 'clientDocumentation' ); ?>
 					</li>
 
-					<li class="cd_tick_file" tabindex="16">
+					<li class="cd_tick_file" id="cd_tick_file" tabindex="16">
 						<i class="icon-copy"></i>
 						<?php _e( 'Upload a file' , 'clientDocumentation' ); ?>
 					</li>
@@ -581,7 +583,7 @@ class clientDocumentation {
 						<input type="button" id="cd_button_file" class="button-secondary cd_button_upload" value="<?php _e( 'Upload a file' , 'clientDocumentation' ); ?>"/>
 					</p>
 
-					<div class="button-primary edition_submit" id="#cd_edition_submit"><?php _e( 'Edit' , 'clientDocumentation' ); ?></div>
+					<div class="button-primary edition_submit" id="cd_edition_submit" data-itemid="" data-itemtype=""><?php _e( 'Edit' , 'clientDocumentation' ); ?></div>
 
 				</form>
 
@@ -649,14 +651,32 @@ class clientDocumentation {
 					'iframe' => array(
 						'src' => array(),
             'width' => array(),
-            'height' => array()
+            'height' => array(),
+            'style' => array()
 					),
-					'a' => array(),
-
+					'a' => array(
+            'href' => array(),
+            'title' => array(),
+            'target' => array(),
+            'style' => array()
+          )
 				);
+        $allowednote = array(
+          'a' => array(
+            'href' => array(),
+            'title' => array(),
+            'target' => array()
+          ),
+          'p' => array('style' => array()),
+          'strong' => array('style' => array()),
+          'b' => array('style' => array()),
+          'em' => array('style'=>array()),
+          'i' => array('style'=>array())
+        );
 				$type = sanitize_text_field( $_POST[ 'cd_type' ] );
 				$title = sanitize_text_field( $_POST[ 'cd_title' ] );
 				if(in_array($type, array( 'link', 'file' ) ) ) $content = esc_url_raw( $_POST[ 'cd_content' ] );
+        elseif($type == 'note') $content = wp_kses($_POST['cd_content'], $allowednote);
 				elseif($type == 'video') $content = wp_kses($_POST['cd_content'], $allowedhtml);
 				else $content = sanitize_text_field( $_POST[ 'cd_content' ] );
 
@@ -666,12 +686,12 @@ class clientDocumentation {
 					'title' => $title,
 					'content' => $content
 				);
-				if($record = $wpdb->insert($table_name, $data)){
+				if($wpdb->insert($table_name, $data)){
 
 					$response = array(
 						'issue' => 'success',
 						'data' => array(
-							'ID' => $record,
+							'ID' => $wpdb->insert_id,
 							'type' => $type,
 							'title' => $title,
 							'content' => $content
@@ -832,12 +852,33 @@ class clientDocumentation {
 
 						$allowedhtml = array(
 							'iframe' => array(
-								'src' => array()
+								'src' => array(),
+                'style' => array(),
+                'height' => array(),
+                'width' => array()
 							),
-							'a' => array()
+							'a' => array(
+                'href' => array(),
+                'title' => array(),
+                'target' => array(),
+                'style' => array()
+              )
 						);
+            $allowednote = array(
+              'a' => array(
+                'href' => array(),
+                'title' => array(),
+                'target' => array()
+              ),
+              'p' => array('style' => array()),
+              'strong' => array('style' => array()),
+              'b' => array('style' => array()),
+              'em' => array('style'=>array()),
+              'i' => array('style'=>array())
+            );
 
 						if(in_array($type, array('file','link'))) $content = esc_url_raw( $_POST['cd_content'] );
+            elseif($type == 'note') $content = wp_kses( $_POST['cd_content'], $allowednote );
 						elseif($type == 'video') $content = wp_kses( $_POST['cd_content'], $allowedhtml );
 						else $content = sanitize_text_field($_POST['cd_content']);
 
