@@ -86,7 +86,7 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 * Initial Version
 
 == Upgrade Notice ==
-Keep this plugin up to date by updating it now !
+New update available !
 
  == Frequently Asked Questions ==
 =  What's happenning when I delete this plugin ? =
