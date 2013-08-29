@@ -45,7 +45,7 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 = 1.1.4 = 
 
 * Edit field MySQL optimization
-* <br> tag now supported on Quick note and Video
+* br tag now supported on Quick note and Video
 * Menu position conflicts fixed
 
 = 1.1.3 = 
