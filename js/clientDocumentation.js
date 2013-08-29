@@ -276,10 +276,8 @@ jQuery(document).ready(function($){
 
     var edit_id = $(this).data('itemid');
     var edit_type = $(this).data('itemtype');
-    console.log(edit_id+'::'+edit_type);
 
     var edit_li = $('#cd_list_'+edit_id);
-    console.log(edit_li);
 
     $('#cd_edition_submit').attr('data-itemid', edit_id);
     $('#cd_edition_submit').attr('data-itemtype', edit_type);
@@ -287,7 +285,8 @@ jQuery(document).ready(function($){
 
     if(edit_type == 'note' || edit_type == 'video'){
       $( '#cd_edit_textarea' ).show();
-      $( '#cd_edit_content_textarea' ).val( edit_li.children( '.cd_expand' ).html() );
+      var textarea = edit_li.children( '.cd_expand' ).html();
+      $( '#cd_edit_content_textarea' ).val( textarea.replace('<br>','') );
     }else if( edit_type == 'file' ){
       $( '#cd_edit_file' ).show();
       $( '#cd_edit_content_file' ).val( edit_li.children( '.cd_expand' ).html() );
@@ -301,10 +300,8 @@ jQuery(document).ready(function($){
   $('.edition_submit').on('click', function(){
 
     var edit_id = $('#cd_edition_submit').attr('data-itemid');
-    console.log('si:'+edit_id);
 
     var edit_type = $('#cd_edition_submit').attr('data-itemtype');
-    console.log('st:'+edit_type);
 
     var edit_title = $('#cd_edit_title').val();
 

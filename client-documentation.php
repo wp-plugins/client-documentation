@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.1.3
+Version: 1.1.4
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -39,7 +39,7 @@ class clientDocumentation {
 
 		/* Table Version */
 		define( 'SMPLDCMTNTBL', '1.0' );
-    define( 'SMPLDCMTNVRS', '1.1.3' );
+    define( 'SMPLDCMTNVRS', '1.1.4' );
 
 
     if(!get_site_option('clientDocumentation_table'))
@@ -232,8 +232,7 @@ class clientDocumentation {
 	    	__( 'Documentation' , 'clientDocumentation' ),
 	    	'manage_options',
 	    	'clientDocumentation',
-	    	array( $this, 'page_content' ) , plugins_url( 'client-documentation/img/icon.png' ),
-	    	100
+	    	array( $this, 'page_content' ) , plugins_url( 'client-documentation/img/icon.png' )
 	    );
 
 	    add_action( 'admin_print_styles-clientDocumentation' , array( $this, 'add_admin_styles' ) );
@@ -659,7 +658,12 @@ class clientDocumentation {
             'title' => array(),
             'target' => array(),
             'style' => array()
-          )
+          ),
+          'p' => array(
+            'align' => array(),
+            'style' => array()
+          ),
+          'br' => array('style' => array())
 				);
         $allowednote = array(
           'a' => array(
@@ -667,17 +671,18 @@ class clientDocumentation {
             'title' => array(),
             'target' => array()
           ),
-          'p' => array('style' => array()),
+          'p' => array('style' => array(),'align'=>array()),
           'strong' => array('style' => array()),
           'b' => array('style' => array()),
           'em' => array('style'=>array()),
-          'i' => array('style'=>array())
+          'i' => array('style'=>array()),
+          'br' => array('style'=>array())
         );
 				$type = sanitize_text_field( $_POST[ 'cd_type' ] );
 				$title = sanitize_text_field( $_POST[ 'cd_title' ] );
 				if(in_array($type, array( 'link', 'file' ) ) ) $content = esc_url_raw( $_POST[ 'cd_content' ] );
-        elseif($type == 'note') $content = wp_kses($_POST['cd_content'], $allowednote);
-				elseif($type == 'video') $content = wp_kses($_POST['cd_content'], $allowedhtml);
+        elseif($type == 'note') $content = wp_kses(nl2br($_POST['cd_content']), $allowednote);
+				elseif($type == 'video') $content = wp_kses(nl2br($_POST['cd_content']), $allowedhtml);
 				else $content = sanitize_text_field( $_POST[ 'cd_content' ] );
 
 				$table_name = $wpdb->clientDocumentation;
@@ -862,7 +867,9 @@ class clientDocumentation {
                 'title' => array(),
                 'target' => array(),
                 'style' => array()
-              )
+              ),
+              'p' => array('align' => array(), 'style' => array()),
+              'br' => array('style' => array())
 						);
             $allowednote = array(
               'a' => array(
@@ -870,17 +877,34 @@ class clientDocumentation {
                 'title' => array(),
                 'target' => array()
               ),
-              'p' => array('style' => array()),
+              'p' => array('style' => array(),'align'=>array()),
               'strong' => array('style' => array()),
               'b' => array('style' => array()),
               'em' => array('style'=>array()),
-              'i' => array('style'=>array())
+              'i' => array('style'=>array()),
+              'br' => array('style'=>array())
             );
 
 						if(in_array($type, array('file','link'))) $content = esc_url_raw( $_POST['cd_content'] );
-            elseif($type == 'note') $content = wp_kses( $_POST['cd_content'], $allowednote );
-						elseif($type == 'video') $content = wp_kses( $_POST['cd_content'], $allowedhtml );
+            elseif($type == 'note') $content = wp_kses( nl2br($_POST['cd_content']), $allowednote );
+						elseif($type == 'video') $content = wp_kses( nl2br($_POST['cd_content']), $allowedhtml );
 						else $content = sanitize_text_field($_POST['cd_content']);
+
+            $dbval = $wpdb->get_row("SELECT title,content FROM $wpdb->clientDocumentation WHERE ID='".mysql_real_escape_string($_POST['cd_itemid'])."' LIMIT 0,1");
+
+            if($dbval->title == $title && $dbval->content == $content){
+              $response = array(
+                'issue' => 'success',
+                'data' => array(
+                  'ID' => $_POST['cd_itemid'],
+                  'title' => $title,
+                  'content' => $content,
+                  'type' => $type
+                )
+              );
+              echo json_encode($response);
+              die();
+            }
 
 						$values = array(
 							'title' => $title,
