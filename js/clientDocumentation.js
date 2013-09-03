@@ -286,7 +286,14 @@ jQuery(document).ready(function($){
     if(edit_type == 'note' || edit_type == 'video'){
       $( '#cd_edit_textarea' ).show();
       var textarea = edit_li.children( '.cd_expand' ).html();
-      $( '#cd_edit_content_textarea' ).val( textarea.replace('<br>','') );
+      if(edit_type == 'note'){
+        textarea = textarea.replace(/&gt;/gi,'>');
+        textarea = textarea.replace(/&lt;/gi,'<');
+        textarea = textarea.replace(/<br>/gi,'');
+      }else{
+        textarea = textarea.replace(/<br>/gi,'');
+      }
+      $( '#cd_edit_content_textarea' ).val( textarea );
     }else if( edit_type == 'file' ){
       $( '#cd_edit_file' ).show();
       $( '#cd_edit_content_file' ).val( edit_li.children( '.cd_expand' ).html() );
@@ -332,8 +339,10 @@ jQuery(document).ready(function($){
 			alert(d.data);
 		}else{
 
-			$( '#cd_list_'+d.data['ID'] ).children( '.cd_title' ).children( '.cd_list_title' ).html( $.stripslashes(d.data['title']) );
-			$( '#cd_list_'+d.data['ID'] ).children( '.cd_expand' ).html( $.stripslashes(d.data['content']));
+      if(d.data['type'] == 'note') $( '#cd_list_'+d.data['ID'] ).children( '.cd_expand' ).html( $.stripslashes( $.stripslashes(d.data['content'])));
+			else $( '#cd_list_'+d.data['ID'] ).children( '.cd_expand' ).html( $.stripslashes(d.data['content']));
+
+      $( '#cd_list_'+d.data['ID'] ).children( '.cd_title' ).children( '.cd_list_title' ).html( $.stripslashes(d.data['title']) );
 
 			$(function(){
 				tb_remove();

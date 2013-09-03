@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.1.4
+Version: 1.1.5
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -29,7 +29,39 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class clientDocumentation {
 
-	/**
+  public $allowed_html = array(
+    'iframe' => array(
+      'src' => array(),
+      'style' => array(),
+      'height' => array(),
+      'width' => array()
+    ),
+    'a' => array(
+      'href' => array(),
+      'title' => array(),
+      'target' => array(),
+      'style' => array()
+    ),
+    'p' => array('align' => array(), 'style' => array()),
+    'br' => array('style' => array())
+  );
+
+  public $allowed_note = array(
+    'a' => array(
+      'href' => array(),
+      'title' => array(),
+      'target' => array()
+    ),
+    'p' => array('style' => array(),'align'=>array()),
+    'strong' => array('style' => array()),
+    'b' => array('style' => array()),
+    'em' => array('style'=>array()),
+    'i' => array('style'=>array()),
+    'br' => array('style'=>array()),
+    'code' => array('style' => array())
+  );
+
+  /**
 	 * __construct function.
 	 *
 	 * Add actions and filters
@@ -39,7 +71,7 @@ class clientDocumentation {
 
 		/* Table Version */
 		define( 'SMPLDCMTNTBL', '1.0' );
-    define( 'SMPLDCMTNVRS', '1.1.4' );
+    define( 'SMPLDCMTNVRS', '1.1.5' );
 
 
     if(!get_site_option('clientDocumentation_table'))
@@ -646,43 +678,12 @@ class clientDocumentation {
 					die();
 
 				}
-				$allowedhtml = array(
-					'iframe' => array(
-						'src' => array(),
-            'width' => array(),
-            'height' => array(),
-            'style' => array()
-					),
-					'a' => array(
-            'href' => array(),
-            'title' => array(),
-            'target' => array(),
-            'style' => array()
-          ),
-          'p' => array(
-            'align' => array(),
-            'style' => array()
-          ),
-          'br' => array('style' => array())
-				);
-        $allowednote = array(
-          'a' => array(
-            'href' => array(),
-            'title' => array(),
-            'target' => array()
-          ),
-          'p' => array('style' => array(),'align'=>array()),
-          'strong' => array('style' => array()),
-          'b' => array('style' => array()),
-          'em' => array('style'=>array()),
-          'i' => array('style'=>array()),
-          'br' => array('style'=>array())
-        );
+
 				$type = sanitize_text_field( $_POST[ 'cd_type' ] );
 				$title = sanitize_text_field( $_POST[ 'cd_title' ] );
 				if(in_array($type, array( 'link', 'file' ) ) ) $content = esc_url_raw( $_POST[ 'cd_content' ] );
-        elseif($type == 'note') $content = wp_kses(nl2br($_POST['cd_content']), $allowednote);
-				elseif($type == 'video') $content = wp_kses(nl2br($_POST['cd_content']), $allowedhtml);
+        elseif($type == 'note') $content = $this->support_code($_POST['cd_content']);
+				elseif($type == 'video') $content = wp_kses(nl2br($_POST['cd_content']), $this->allowed_html);
 				else $content = sanitize_text_field( $_POST[ 'cd_content' ] );
 
 				$table_name = $wpdb->clientDocumentation;
@@ -855,39 +856,11 @@ class clientDocumentation {
 						$title = sanitize_text_field($_POST['cd_title']);
 						$type = $_POST['cd_type'];
 
-						$allowedhtml = array(
-							'iframe' => array(
-								'src' => array(),
-                'style' => array(),
-                'height' => array(),
-                'width' => array()
-							),
-							'a' => array(
-                'href' => array(),
-                'title' => array(),
-                'target' => array(),
-                'style' => array()
-              ),
-              'p' => array('align' => array(), 'style' => array()),
-              'br' => array('style' => array())
-						);
-            $allowednote = array(
-              'a' => array(
-                'href' => array(),
-                'title' => array(),
-                'target' => array()
-              ),
-              'p' => array('style' => array(),'align'=>array()),
-              'strong' => array('style' => array()),
-              'b' => array('style' => array()),
-              'em' => array('style'=>array()),
-              'i' => array('style'=>array()),
-              'br' => array('style'=>array())
-            );
+
 
 						if(in_array($type, array('file','link'))) $content = esc_url_raw( $_POST['cd_content'] );
-            elseif($type == 'note') $content = wp_kses( nl2br($_POST['cd_content']), $allowednote );
-						elseif($type == 'video') $content = wp_kses( nl2br($_POST['cd_content']), $allowedhtml );
+            elseif($type == 'note') $content = $this->support_code( $_POST['cd_content'] );
+						elseif($type == 'video') $content = wp_kses( nl2br($_POST['cd_content']), $$this->allowed_html );
 						else $content = sanitize_text_field($_POST['cd_content']);
 
             $dbval = $wpdb->get_row("SELECT title,content FROM $wpdb->clientDocumentation WHERE ID='".mysql_real_escape_string($_POST['cd_itemid'])."' LIMIT 0,1");
@@ -1035,6 +1008,25 @@ class clientDocumentation {
 		}
 		endif;
 	}
+
+  public function support_code($content){
+
+    $clean='';
+    $code = explode('<code>',$content);
+    if(!empty($code[1])){
+
+        $clean = wp_kses(nl2br($code[0]), $this->allowed_note);
+        $clean .= '<code>';
+        $htmlctt = explode('</code>',$code[1]);
+        $clean .= htmlentities( $htmlctt[0] );
+        $clean .= '</code>';
+        $clean .= wp_kses(nl2br($htmlctt[1]), $this->allowed_note);
+
+    }
+
+    return $clean;
+
+  }
 
 	/**
 	 * Dashboard widget content
