@@ -1013,15 +1013,13 @@ class clientDocumentation {
 
     $clean='';
     $code = explode('<code>',$content);
-    if(!empty($code[1])){
-
-        $clean = wp_kses(nl2br($code[0]), $this->allowed_note);
-        $clean .= '<code>';
-        $htmlctt = explode('</code>',$code[1]);
-        $clean .= htmlentities( $htmlctt[0] );
-        $clean .= '</code>';
-        $clean .= wp_kses(nl2br($htmlctt[1]), $this->allowed_note);
-
+    $clean = wp_kses(nl2br($code[0]), $this->allowed_note);
+    for($i=1;$i<count($code);$i++){
+      $clean .= '<code>';
+      $htmlctt = explode('</code>',$code[$i]);
+      $clean .= preg_replace( '/<br\W*?\/>/' ,'', nl2br( htmlentities( $htmlctt[0] ) ), 1);
+      $clean .= '</code>';
+      $clean .= wp_kses(nl2br($htmlctt[1]), $this->allowed_note);
     }
 
     return $clean;

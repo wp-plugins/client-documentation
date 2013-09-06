@@ -77,6 +77,11 @@
 	width:100%;
   height:350px;
 }
+.clientDocumentation .cd_expand code{
+	padding:2%;
+  margin:1%;
+  display:block;
+}
 .clientDocumentation .cd-list li.cd-list-el:hover{
 	background:#fff;
 	cursor: pointer;
@@ -307,11 +312,11 @@
 	Dashboard widget style
 	====================================  */
 .cd_wdg_title{
-	font-size: 1.4em !important;
+	font-size: 1.3em !important;
 	font-weight: bold;
 	margin:30px 0 0 0 !important;
 	border-bottom: 1px solid #ccc;
-  padding-bottom:10px;
+  padding-bottom:2px !important;
 }
 .cd_wdg_title.first{
 	margin:20px 0 0 0 !important;
@@ -395,6 +400,12 @@
 .cd_client_star li div.cd_widget_content iframe{
 	width:100%;
   height:350px;
+}
+.cd_client_list li div.cd_widget_content code,
+.cd_client_star li div.cd_widget_content code{
+	padding:2%;
+  margin:1%;
+  display:block;
 }
 .cd_page{
 	margin:15px 0 0 0;

@@ -2,6 +2,7 @@
   $.stripslashes = function (str) {
     str = str.replace(/\\'/g,'\'');
     str = str.replace(/\\"/g,'"');
+    str = str.replace(/\\/g,'');
     str = str.replace(/\\\\/g,'\\');
     str = str.replace(/\\0/g,'\0');
     return str;
@@ -339,8 +340,10 @@ jQuery(document).ready(function($){
 			alert(d.data);
 		}else{
 
-      if(d.data['type'] == 'note') $( '#cd_list_'+d.data['ID'] ).children( '.cd_expand' ).html( $.stripslashes( $.stripslashes(d.data['content'])));
-			else $( '#cd_list_'+d.data['ID'] ).children( '.cd_expand' ).html( $.stripslashes(d.data['content']));
+      if(d.data['type'] == 'note'){
+        $( '#cd_list_'+d.data['ID'] ).children( '.cd_expand' ).html( $.stripslashes(d.data['content']));
+        console.log($.stripslashes(d.data['content']));
+      }else{ $( '#cd_list_'+d.data['ID'] ).children( '.cd_expand' ).html( $.stripslashes(d.data['content'])); }
 
       $( '#cd_list_'+d.data['ID'] ).children( '.cd_title' ).children( '.cd_list_title' ).html( $.stripslashes(d.data['title']) );
 

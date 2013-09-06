@@ -25,12 +25,12 @@ As an administrator, you can add, edit or remove content, choose the number of i
 
 Backend Users and Administrators can pin items to highlight them.
 
-= Features = 
+= Features =
 
 * Multisite support
 * Import / Export
 
-= Languages = 
+= Languages =
 
 * English
 * French
@@ -40,20 +40,25 @@ Backend Users and Administrators can pin items to highlight them.
 
 The installation is not tricky. It's simple as activating the plugin and Add content !
 
-== Changelog == 
+== Changelog ==
 
-= 1.1.4 = 
+= 1.1.5 =
+
+* Now you can add code snippets in note using &lt;code&gt; tag.
+* &lt;br&gt; tag fix on note and video
+
+= 1.1.4 =
 
 * Edit field MySQL optimization
 * Quick note and Video now support br tag
 * Menu position conflicts fixed
 
-= 1.1.3 = 
+= 1.1.3 =
 
 * Field edition fix.
 * Basic html support added to quick note content. (a,strong,b,em,i)
 
-= 1.1.2 = 
+= 1.1.2 =
 
 * MP6 optimization on modal box
 * Cache issue fix
@@ -69,7 +74,7 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 * String issues fixed.
 * Welcome, Pinned and All items customization added.
 
-= 1.0.4 = 
+= 1.0.4 =
 
 * Welcome message now support HTML tags
 * Video height issue fixed
@@ -79,7 +84,7 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 * Add Welcome message customization
 * Custom role support
 
-= 1.0.2 = 
+= 1.0.2 =
 
 * Icons fix
 
@@ -92,11 +97,16 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 * Initial Version
 
 == Upgrade Notice ==
-New update available ! 
 
- == Frequently Asked Questions ==
-=  What's happenning when I delete this plugin ? =
+= 1.1.5 =
+This new update allows you to add code snippet in notes and fix &lt;br&gt; tag issues.
+
+== Frequently Asked Questions ==
+= What's happenning when I delete this plugin ? =
 All the data stored in your database and Wordpress options are also deleted ! When the plugin is desactivated, all data remains in your database.
+
+= How to add code snippets to my notes ? =
+You must add your code snippet between &lt;code&gt; tags.
 
 == Screenshots ==
 
