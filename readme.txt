@@ -36,11 +36,22 @@ Backend Users and Administrators can pin items to highlight them.
 * French
 * Spanish (thanks to [Sugartoys](http://sugartoys.net))
 
+= Upcoming features =
+
+* Re-order items ( Drag&Drop )
+
 == Installation ==
 
-The installation is not tricky. It's simple as activating the plugin and Add content !
+The installation is not tricky. It's simple as activating the plugin and Add content !<br />
+Hit the import/export button to copy your installation on multiple WP installations.
 
 == Changelog ==
+
+= 1.1.6 =
+
+* Video and File edition Fix
+* Retina support on Menu icon
+* Loading statement added on edit/add buttons.
 
 = 1.1.5 =
 
@@ -97,6 +108,9 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 * Initial Version
 
 == Upgrade Notice ==
+
+= 1.1.6 =
+Fix video and file edition issues.
 
 = 1.1.5 =
 This new update allows you to add code snippet in notes and fix &lt;br&gt; tag issues.

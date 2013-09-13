@@ -84,6 +84,7 @@ jQuery(document).ready(function($){
 
 			add.title = $( '#cd_title_' + add.type ).val();
 			add.content = $( '#cd_content_' + add.type ).val();
+      $(this).addClass('loading');
 
 			add.cd_type = add.type;
 
@@ -117,6 +118,8 @@ jQuery(document).ready(function($){
 				content += '<a href="#TB_inline?width=350&height=550&inlineId=cd_edit_field" class="thickbox edit_field" data-itemid="'+d.data['ID']+'" data-itemtype="'+d.data['type']+'"><i class="icon-pencil edit_field"></i></a>';
 				content += '<i class="icon-remove remove_field" data-itemid="'+d.data['ID']+'"></i>';
 				content += '</span></div><div class="cd_expand">'+$.stripslashes(d.data['content'])+'</div></li>';
+
+        $('#cd_submit_'+d.data['type']).removeClass('loading');
 
 				$(function(){
 					tb_remove();
@@ -218,6 +221,8 @@ jQuery(document).ready(function($){
 	// Submit setting updates through Ajax
 	$('#cd_setting_submit').click(function(){
 
+    $(this).addClass('loading');
+
 		var cd = {};
 		cd.clientRole = $('#clientDocumentation_clientRole').val();
 		cd.widgetTitle = $('#clientDocumentation_widget_title').val();
@@ -249,7 +254,7 @@ jQuery(document).ready(function($){
 		var d = $.parseJSON(response);
 
 		if(d.issue == 'success'){
-
+      $('#cd_setting_submit').removeClass('loading');
 			$(function(){
 				tb_remove();
 			});
@@ -307,6 +312,8 @@ jQuery(document).ready(function($){
 
   $('.edition_submit').on('click', function(){
 
+    $('#cd_edition_submit').addClass('loading');
+
     var edit_id = $('#cd_edition_submit').attr('data-itemid');
 
     var edit_type = $('#cd_edition_submit').attr('data-itemtype');
@@ -346,6 +353,8 @@ jQuery(document).ready(function($){
       }else{ $( '#cd_list_'+d.data['ID'] ).children( '.cd_expand' ).html( $.stripslashes(d.data['content'])); }
 
       $( '#cd_list_'+d.data['ID'] ).children( '.cd_title' ).children( '.cd_list_title' ).html( $.stripslashes(d.data['title']) );
+
+      $('#cd_edition_submit').removeClass('loading');
 
 			$(function(){
 				tb_remove();
@@ -401,8 +410,6 @@ jQuery(document).ready(function($){
 
 		if( d.issue == 'success' ){
 
-			console.log(element);
-
 			element.removeClass('loading');
 
 			if(d.data['etoile_b']){
@@ -422,6 +429,7 @@ jQuery(document).ready(function($){
   */
 
   $('.cd_import_button').click(function(){
+
     var data = {
       action: 'cd_ajax',
       cd_action: 'import',
@@ -429,10 +437,15 @@ jQuery(document).ready(function($){
     };
 
     jQuery.post( ajax_object.ajax_url , data , function(response){
-      alert(response);
-      $(function(){
-				tb_remove();
-			});
+
+      var d = $.parseJSON(response);
+      if( d.issue == 'error' ){ alert(d.data); }
+      else {
+        alert(d.data);
+        $(function(){
+          tb_remove();
+        });
+      }
     });
   });
   $('.cd_export_button').click(function(){

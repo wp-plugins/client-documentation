@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.1.5
+Version: 1.1.6
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -71,7 +71,7 @@ class clientDocumentation {
 
 		/* Table Version */
 		define( 'SMPLDCMTNTBL', '1.0' );
-    define( 'SMPLDCMTNVRS', '1.1.5' );
+    define( 'SMPLDCMTNVRS', '1.1.6' );
 
 
     if(!get_site_option('clientDocumentation_table'))
@@ -259,12 +259,16 @@ class clientDocumentation {
 	 * Register page function. Only available to Administrators
 	 */
 	public function register_page(){
-	    add_menu_page(
+	  $former_icon = plugins_url( 'client-documentation/img/icon.png' );
+    $icon = 'div';
+
+    add_menu_page(
 	    	__( 'Simple Documentation' , 'clientDocumentation' ),
 	    	__( 'Documentation' , 'clientDocumentation' ),
 	    	'manage_options',
 	    	'clientDocumentation',
-	    	array( $this, 'page_content' ) , plugins_url( 'client-documentation/img/icon.png' )
+	    	array( $this, 'page_content' ) ,
+        $icon
 	    );
 
 	    add_action( 'admin_print_styles-clientDocumentation' , array( $this, 'add_admin_styles' ) );
@@ -363,7 +367,7 @@ class clientDocumentation {
 						</div>
 
 						<div class="cd_credits">
-							This plugin was created by <a href="http://mathieuhays.com">Mathieu HAYS</a> - <a href="http://twitter.com/mathieuhays">@mathieuhays</a>
+							This plugin was created by <a href="http://mathieuhays.co.uk">Mathieu HAYS</a> - <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=862ML9VW2NVQU">Donate</a> - <a href="http://twitter.com/mathieuhays">@mathieuhays</a>
 						</div>
 
 					</div><!-- .second-part -->
@@ -610,7 +614,7 @@ class clientDocumentation {
 					</p>
 					<p id="cd_edit_file" style="display:none">
 						<label for="cd_edit_content_file"><?php _e('Content', 'clientDocumentation'); ?></label><br />
-						<input type="url" id="cd_edit_content_file" name="cd_edit_content_file" class="cd_text_upload" placeholder="<?php _e( 'File path / url' , 'clientDocumentation' ); ?>" />
+						<input type="url" id="cd_edit_content_file" name="cd_edit_content_file" class="cd_text_upload" placeholder="<?php _e( 'File path / url' , 'clientDocumentation' ); ?>" value=""/>
 						<input type="button" id="cd_button_file" class="button-secondary cd_button_upload" value="<?php _e( 'Upload a file' , 'clientDocumentation' ); ?>"/>
 					</p>
 
@@ -860,7 +864,7 @@ class clientDocumentation {
 
 						if(in_array($type, array('file','link'))) $content = esc_url_raw( $_POST['cd_content'] );
             elseif($type == 'note') $content = $this->support_code( $_POST['cd_content'] );
-						elseif($type == 'video') $content = wp_kses( nl2br($_POST['cd_content']), $$this->allowed_html );
+						elseif($type == 'video') $content = wp_kses( nl2br($_POST['cd_content']), $this->allowed_html );
 						else $content = sanitize_text_field($_POST['cd_content']);
 
             $dbval = $wpdb->get_row("SELECT title,content FROM $wpdb->clientDocumentation WHERE ID='".mysql_real_escape_string($_POST['cd_itemid'])."' LIMIT 0,1");
@@ -966,6 +970,15 @@ class clientDocumentation {
 
     }elseif($_POST['cd_action'] == 'import'){
 
+        if(empty($_POST['cd_content'])){
+          $response = array(
+            'issue' => 'error',
+            'data' => __( 'One or more fields are missing !' , 'clientDocumentation' )
+          );
+          echo json_encode($response);
+          die();
+        }
+
         $table_name = $wpdb->clientDocumentation;
         $data = json_decode(stripslashes($_POST['cd_content']));
         $error = 0;
@@ -993,8 +1006,9 @@ class clientDocumentation {
 
         }
 
-        if($error!=0) echo __('Import error','clientDocumentation');
-        else echo __('Import completed','clientDocumentation');
+        if($error!=0) $response = array( 'issue' => 'error', 'data' => __('Import error','clientDocumentation') );
+        else $response = array( 'issue' => 'success', 'data' => __('Import completed','clientDocumentation') );
+        echo json_encode($response);
         die();
 
 		}else{
