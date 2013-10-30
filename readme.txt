@@ -35,10 +35,13 @@ Backend Users and Administrators can pin items to highlight them.
 * English
 * French
 * Spanish (thanks to [Sugartoys](http://sugartoys.net))
+* German (thanks to [Alexander Pfabel](http://alexander.pfabel.de/))
 
 = Upcoming features =
 
 * Re-order items ( Drag&Drop )
+
+PS: I currently don’t have a lot of time to implement new features due to my work but I’ll do my best to code them as soon as possible. Thank you for your support !
 
 == Installation ==
 
@@ -46,6 +49,10 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 Hit the import/export button to copy your installation on multiple WP installations.
 
 == Changelog ==
+
+= 1.1.7 =
+
+* German Translation added. Thanks to [Alexander Pfabel](http://alexander.pfabel.de/)
 
 = 1.1.6 =
 
