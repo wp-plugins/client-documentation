@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.1.6
+Version: 1.1.7
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -71,7 +71,7 @@ class clientDocumentation {
 
 		/* Table Version */
 		define( 'SMPLDCMTNTBL', '1.0' );
-    define( 'SMPLDCMTNVRS', '1.1.6' );
+    define( 'SMPLDCMTNVRS', '1.1.7' );
 
 
     if(!get_site_option('clientDocumentation_table'))
