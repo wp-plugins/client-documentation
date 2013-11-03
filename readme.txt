@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed,multisite
 Requires at least: 3.0.1
 Tested up to: 3.6.1
-Stable tag: 1.1.7
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,8 @@ Backend Users and Administrators can pin items to highlight them.
 = Upcoming features =
 
 * Re-order items ( Drag&Drop )
+* SQL optimization
+* User roles limitation per item
 
 PS: I currently don’t have a lot of time to implement new features due to my work but I’ll do my best to code them as soon as possible. Thank you for your support !
 
@@ -49,6 +51,13 @@ The installation is not tricky. It's simple as activating the plugin and Add con
 Hit the import/export button to copy your installation on multiple WP installations.
 
 == Changelog ==
+
+= 1.1.8 =
+
+* German translation improved
+* Text edition. Correction.
+
+Thanks to Alexander Pfabel and Vernon Fowler.
 
 = 1.1.7 =
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Simple Documentation\n"
 "POT-Creation-Date: 2013-08-27 12:42+0100\n"
-"PO-Revision-Date: 2013-08-27 12:43+0100\n"
+"PO-Revision-Date: 2013-11-03 21:42+0100\n"
 "Last-Translator: Mathieu HAYS <mathieu@mathieuhays.co.uk>\n"
 "Language-Team: mathieu HAYS <mathieu@mathieuhays.co.uk>\n"
 "Language: FR/EN\n"
@@ -56,7 +56,7 @@ msgstr "Information"
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:326
 msgid ""
-"Hit the add button to share advices and great links to your client directly "
+"Hit the add button to share advice and great links to your client directly "
 "on its interface."
 msgstr ""
 "Cliquez sur le bouton ajouter pour partager des conseils et de bons liens "
@@ -317,3 +317,31 @@ msgstr "Cliquez pour voir"
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:1068
 msgid "Pages"
 msgstr "Pages"
+
+#: Administrator - Settings dropdown
+msgid "Administrator"
+msgstr "Administrateur"
+
+#: Contributor - Settings dropdown
+msgid "Contributor"
+msgstr "Contributeur"
+
+#: Credit
+msgid "This plugin was created by"
+msgstr "Ce plugin a été créé par"
+
+#: Donate
+msgid "Donate"
+msgstr "Faire un don"
+
+#: Help sentences
+msgid "You can customize titles, content, user roles in"
+msgstr "Vous pouvez changer les titres, contenus, rôles dans"
+
+#: Help sentences
+msgid ""
+"Run multiple websites ? Use the Import/Export feature to quickly and easily "
+"add content."
+msgstr ""
+"Vous gérez plusieurs sites internet ? Utilisez la fonction d'import / export "
+"pour rapidement et facilement insérer du contenu."

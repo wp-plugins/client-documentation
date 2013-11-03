@@ -3,7 +3,7 @@
 Plugin Name: Simple Documentation
 Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-Version: 1.1.7
+Version: 1.1.8
 Author: Mathieu Hays
 Author URI: http://mathieuhays.co.uk
 License: GPL2
@@ -71,7 +71,7 @@ class clientDocumentation {
 
 		/* Table Version */
 		define( 'SMPLDCMTNTBL', '1.0' );
-    define( 'SMPLDCMTNVRS', '1.1.7' );
+    define( 'SMPLDCMTNVRS', '1.1.8' );
 
 
     if(!get_site_option('clientDocumentation_table'))
@@ -360,14 +360,17 @@ class clientDocumentation {
 
 							<h2><?php _e( 'Information' , 'clientDocumentation' ); ?></h2>
 
-							<p><?php _e( 'Hit the add button to share advices and great links to your client directly on its interface.', 'clientDocumentation' ); ?></p>
+							<p><?php _e( 'Hit the add button to share advice and great links to your client directly on its interface.', 'clientDocumentation' ); ?><br />
+								<?php _e('You can customize titles, content, user roles in','clientDocumentation'); ?> &quot;<?php _e('Edit settings','clientDocumentation'); ?>&quot;.<br />
+								<?php _e('Run multiple websites ? Use the Import/Export feature to quickly and easily add content.','clientDocumentation'); ?>
+							</p>
 
 							<?php $this->modal(); ?>
 
 						</div>
 
 						<div class="cd_credits">
-							This plugin was created by <a href="http://mathieuhays.co.uk">Mathieu HAYS</a> - <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=862ML9VW2NVQU">Donate</a> - <a href="http://twitter.com/mathieuhays">@mathieuhays</a>
+							<?php _e( 'This plugin was created by', 'clientDocumentation' ); ?> <a href="http://mathieuhays.co.uk">Mathieu HAYS</a> - <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=862ML9VW2NVQU"><?php _e('Donate','clientDocumentation'); ?></a> - <a href="http://twitter.com/mathieuhays">@mathieuhays</a>
 						</div>
 
 					</div><!-- .second-part -->
@@ -541,13 +544,10 @@ class clientDocumentation {
             <p class="cd_one">
               <label for="clientDocumentation_clientRole"><?php _e( 'Define the client user role' , 'clientDocumentation' ); ?></label><br />
               <select name="clientDocumentation_clientRole" id="clientDocumentation_clientRole">
-                <!--<option value="editor" <?php echo $this->checked( 'editor' ); ?>><?php _e( 'Editor' , 'clientDocumentation' ); ?></option>
-                <option value="author" <?php echo $this->checked( 'author' ); ?>><?php _e( 'Author' , 'clientDocumentation' ); ?></option>
-                <option value="subscriber" <?php echo $this->checked( 'subscriber' ); ?>><?php _e( 'Subscriber' , 'clientDocumentation' ); ?></option>-->
                 <?php
                   $roles = $wp_roles->roles;
                   foreach($roles as $srole => $vrole){
-                    echo '<option value="'.$srole.'" '. $this->checked( $srole ) . '>'.$vrole['name'].'</option>';
+                    echo '<option value="'.$srole.'" '. $this->checked( $srole ) . '>'.__($vrole['name'],'clientDocumentation').'</option>';
                   }
                 ?>
               </select>

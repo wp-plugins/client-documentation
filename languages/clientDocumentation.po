@@ -56,7 +56,7 @@ msgstr ""
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:326
 msgid ""
-"Hit the add button to share advices and great links to your client directly "
+"Hit the add button to share advice and great links to your client directly "
 "on its interface."
 msgstr ""
 
@@ -311,4 +311,28 @@ msgstr ""
 
 #: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/client-documentation/client-documentation.php:1068
 msgid "Pages"
+msgstr ""
+
+#: Administrator - Settings dropdown
+msgid "Administrator"
+msgstr ""
+
+#: Contributor - Settings dropdown
+msgid "Contributor"
+msgstr ""
+
+#: Credit
+msgid "This plugin was created by"
+msgstr ""
+
+#: Donate
+msgid "Donate"
+msgstr ""
+
+#: Help sentences
+msgid "You can customize titles, content, user roles in"
+msgstr ""
+
+#: Help sentences
+msgid "Run multiple websites ? Use the Import/Export feature to quickly and easily add content."
 msgstr ""

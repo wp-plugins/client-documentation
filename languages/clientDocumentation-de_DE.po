@@ -1,385 +1,404 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Documentation v1.1.6\n"
+"Project-Id-Version: Simple Documentation v1.1.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-10-15 21:23:42+0000\n"
-"Last-Translator: Alexander Pfabel <lokalisation@pfabel.de>\n"
+"PO-Revision-Date: 2013-11-03 21:38+0100\n"
+"Last-Translator: Mathieu HAYS <mathieu@mathieuhays.co.uk>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: CSL v1.x\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
 "X-Poedit-Basepath: ../\n"
-"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"Language: de_DE\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Textdomain-Support: yes"
 
+# @ clientDocumentation
 #: client-documentation.php:132
-#@ clientDocumentation
 msgid "Following fields are missing :"
 msgstr "Es fehlen folgende Felder:"
 
+# @ clientDocumentation
 #: client-documentation.php:133
-#@ clientDocumentation
 msgid "is missing !"
 msgstr "fehlt!"
 
-#: client-documentation.php:149
-#: client-documentation.php:525
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:149 client-documentation.php:525
 msgid "Resources"
 msgstr "Ressourcen"
 
+# @ clientDocumentation
 #: client-documentation.php:249
-#@ clientDocumentation
 msgid "How to create your first post"
 msgstr "Wie du deinen ersten Beitrag erstellst"
 
+# @ clientDocumentation
 #: client-documentation.php:250
-#@ clientDocumentation
 msgid "Example of content"
 msgstr "Beispiel für Inhalte"
 
-#: client-documentation.php:266
-#: client-documentation.php:315
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:266 client-documentation.php:315
 msgid "Simple Documentation"
 msgstr "Einfache Dokumentation"
 
+# @ clientDocumentation
 #: client-documentation.php:267
-#@ clientDocumentation
 msgid "Documentation"
 msgstr "Dokumentation"
 
+# @ clientDocumentation
 #: client-documentation.php:324
-#@ clientDocumentation
 msgid "Documentation list"
-msgstr "Dokumentationsliste"
+msgstr "Dokumentenliste"
 
+# @ clientDocumentation
 #: client-documentation.php:361
-#@ clientDocumentation
 msgid "Information"
 msgstr "Informationen"
 
+# @ clientDocumentation
 #: client-documentation.php:363
-#@ clientDocumentation
-msgid "Hit the add button to share advices and great links to your client directly on its interface."
-msgstr "Klick auf den Hinzufügen-Button, um Ratschläge und nützliche Links mit deinen Kunden direkt über das Dashboard zu teilen."
+msgid ""
+"Hit the add button to share advice and great links to your client directly "
+"on its interface."
+msgstr ""
+"Klick auf \"Neue Inhalte hinzufügen\", um Tipps und nützliche Links direkt "
+"über das Dashboard zu teilen.<br />Unter \"Einstellungen bearbeiten\" kannst "
+"du das Dashboard-Widget anpassen.<br />Über \"Import / Export\" kannst du "
+"deine Dokumente und Einstellungen exportieren und importieren."
 
+# @ clientDocumentation
 #: client-documentation.php:405
-#@ clientDocumentation
 msgid "Add new content"
 msgstr "Neue Inhalte hinzufügen"
 
+# @ clientDocumentation
 #: client-documentation.php:409
-#@ clientDocumentation
 msgid "Edit settings"
 msgstr "Einstellungen bearbeiten"
 
+# @ clientDocumentation
 #: client-documentation.php:413
-#@ clientDocumentation
 msgid "Import / Export"
 msgstr "Import / Export"
 
+# @ clientDocumentation
 #: client-documentation.php:430
-#@ clientDocumentation
 msgid "Video"
 msgstr "Video"
 
+# @ clientDocumentation
 #: client-documentation.php:435
-#@ clientDocumentation
 msgid "Quick note"
 msgstr "Kurze Notiz"
 
+# @ clientDocumentation
 #: client-documentation.php:440
-#@ clientDocumentation
 msgid "Link"
 msgstr "Link"
 
-#: client-documentation.php:445
-#: client-documentation.php:510
+# @ clientDocumentation
+#: client-documentation.php:445 client-documentation.php:510
 #: client-documentation.php:618
-#@ clientDocumentation
 msgid "Upload a file"
-msgstr "Eine Datei hochladen"
+msgstr "Datei hochladen"
 
+# @ clientDocumentation
 #: client-documentation.php:462
-#@ clientDocumentation
 msgid "Choose a type of document !"
-msgstr "Wählen Sie die Dokumentenart!"
+msgstr "Welches Dokument willst du hinzufügen?"
 
-#: client-documentation.php:469
-#: client-documentation.php:483
-#: client-documentation.php:495
-#: client-documentation.php:507
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:469 client-documentation.php:483
+#: client-documentation.php:495 client-documentation.php:507
 msgid "Your title here ..."
-msgstr "Dein Titel hier ..."
+msgstr "Überschrift"
 
+# @ clientDocumentation
 #: client-documentation.php:471
-#@ clientDocumentation
 msgid "<embed code here/>"
 msgstr "<embed code here/>"
 
+# @ clientDocumentation
 #: client-documentation.php:474
-#@ clientDocumentation
-msgid "Support &lt;iframe&gt; and &lt;a&gt; that is to say youtube, vimeo, screenr ..."
-msgstr "Unterstützt &lt;iframe&gt; und &lt;a&gt; für Youtube, Vimeo, Screenr ..."
+msgid ""
+"Support &lt;iframe&gt; and &lt;a&gt; that is to say youtube, vimeo, "
+"screenr ..."
+msgstr ""
+"Unterstützt &lt;iframe&gt; und &lt;a&gt; ideal für YouTube, Vimeo, "
+"Screenr ..."
 
+# @ clientDocumentation
 #: client-documentation.php:476
-#@ clientDocumentation
 msgid "Add a video"
 msgstr "Video hinzufügen"
 
+# @ clientDocumentation
 #: client-documentation.php:485
-#@ clientDocumentation
 msgid "Put here a quick note that will help your customer."
-msgstr "Füge hier eine kurze Notiz ein, die deinen Kunden weiterhilft."
+msgstr "Ergänze eine kleine Notiz, um das Dokument besser einzuordnen."
 
+# @ clientDocumentation
 #: client-documentation.php:487
-#@ clientDocumentation
 msgid "Add a note"
 msgstr "Notiz hinzufügen"
 
+# @ clientDocumentation
 #: client-documentation.php:498
-#@ clientDocumentation
 msgid "http://agencysite.com/tutorial/part-1"
 msgstr "http://agencysite.com/tutorial/part-1"
 
+# @ clientDocumentation
 #: client-documentation.php:500
-#@ clientDocumentation
 msgid "Add a link"
 msgstr "Link hinzufügen"
 
-#: client-documentation.php:509
-#: client-documentation.php:617
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:509 client-documentation.php:617
 msgid "File path / url"
 msgstr "Dateipfad / URL"
 
+# @ clientDocumentation
 #: client-documentation.php:512
-#@ clientDocumentation
 msgid "Add a file"
 msgstr "Datei hinzufügen"
 
-#: client-documentation.php:527
-#: client-documentation.php:1051
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:527 client-documentation.php:1051
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: client-documentation.php:528
-#: client-documentation.php:1052
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:528 client-documentation.php:1052
 msgid "Need Help ? All you need is here !"
 msgstr "Benötigen Sie Hilfe? Alles was Sie brauchen finden Sie hier!"
 
-#: client-documentation.php:529
-#: client-documentation.php:1053
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:529 client-documentation.php:1053
 msgid "All items"
 msgstr "Alle Elemente"
 
-#: client-documentation.php:530
-#: client-documentation.php:1054
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:530 client-documentation.php:1054
 msgid "Pinned"
 msgstr "Fixiert"
 
+# @ clientDocumentation
 #: client-documentation.php:536
-#@ clientDocumentation
 msgid "Settings"
 msgstr "Einstellungen"
 
+# @ clientDocumentation
 #: client-documentation.php:542
-#@ clientDocumentation
 msgid "Define the client user role"
-msgstr "Definiere die Rolle des Client-Benutzers"
+msgstr "Benutzerrolle"
 
+# @ clientDocumentation
 #: client-documentation.php:544
-#@ clientDocumentation
 msgid "Editor"
 msgstr "Redakteur"
 
+# @ clientDocumentation
 #: client-documentation.php:545
-#@ clientDocumentation
 msgid "Author"
 msgstr "Autor"
 
+# @ clientDocumentation
 #: client-documentation.php:546
-#@ clientDocumentation
 msgid "Subscriber"
 msgstr "Abonnent"
 
+# @ clientDocumentation
 #: client-documentation.php:556
-#@ clientDocumentation
 msgid "Number of items displayed per page"
-msgstr "Anzahl der pro Seite angezeigten Elemente"
+msgstr "Elemente pro Seite"
 
+# @ clientDocumentation
 #: client-documentation.php:562
-#@ clientDocumentation
 msgid "Widget title"
-msgstr "Widget-Titel"
+msgstr "Überschrift des Widgets"
 
+# @ clientDocumentation
 #: client-documentation.php:566
-#@ clientDocumentation
 msgid "\"Welcome\" title"
-msgstr "\"Willkommen\"-Title"
+msgstr "\"Willkommens\"-Gruß"
 
+# @ clientDocumentation
 #: client-documentation.php:571
-#@ clientDocumentation
 msgid "Welcome Message"
-msgstr "Willkommensnachricht"
+msgstr "Einleitender Text"
 
+# @ clientDocumentation
 #: client-documentation.php:576
-#@ clientDocumentation
 msgid "\"Pinned\" title"
-msgstr "\"Fixiert\"-Titel"
+msgstr "\"Fixiert\"-Beschriftung"
 
+# @ clientDocumentation
 #: client-documentation.php:580
-#@ clientDocumentation
 msgid "\"All items\" title"
-msgstr "\"Alle Elemente\"-Titel"
+msgstr "\"Alle Elemente\"-Beschriftung"
 
+# @ clientDocumentation
 #: client-documentation.php:584
-#@ clientDocumentation
 msgid "Save"
 msgstr "Speichern"
 
+# @ clientDocumentation
 #: client-documentation.php:598
-#@ clientDocumentation
 msgid "Edition"
-msgstr "Ausgabe"
+msgstr "Bearbeitung"
 
+# @ clientDocumentation
 #: client-documentation.php:603
-#@ clientDocumentation
 msgid "Title"
-msgstr "Titel"
+msgstr "Überschrift"
 
-#: client-documentation.php:608
-#: client-documentation.php:612
+# @ clientDocumentation
+#: client-documentation.php:608 client-documentation.php:612
 #: client-documentation.php:616
-#@ clientDocumentation
 msgid "Content"
 msgstr "Inhalt"
 
+# @ clientDocumentation
 #: client-documentation.php:621
-#@ clientDocumentation
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: client-documentation.php:633
-#: client-documentation.php:635
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:633 client-documentation.php:635
 msgid "Import"
-msgstr "Importieren"
+msgstr "Import"
 
+# @ clientDocumentation
 #: client-documentation.php:638
-#@ clientDocumentation
 msgid "Export"
-msgstr "Exportieren"
+msgstr "Export"
 
+# @ clientDocumentation
 #: client-documentation.php:640
-#@ clientDocumentation
 msgid "Generate"
 msgstr "Generieren"
 
+# @ clientDocumentation
 #: client-documentation.php:642
-#@ clientDocumentation
 msgid "Include options"
 msgstr "Optionen einschließen"
 
+# @ clientDocumentation
 #: client-documentation.php:643
-#@ clientDocumentation
 msgid "Exclude options"
 msgstr "Optionen ausschließen"
 
+# @ clientDocumentation
 #: client-documentation.php:645
-#@ clientDocumentation
 msgid "if included, options will be overwritten"
-msgstr "Wenn eingeschlossen, werden Optionen überschrieben"
+msgstr "Wenn eingeschlossen, werden alle Optionen überschrieben."
 
+# @ clientDocumentation
 #: client-documentation.php:717
-#@ clientDocumentation
 msgid "Error while adding your new document, please try again later."
-msgstr "Fehler beim Hinzufügen von neuem Dokument, bitte versuche es später erneut."
+msgstr "Fehler beim Hinzufügen von neuem Dokument, bitte versuche es erneut."
 
+# @ clientDocumentation
 #: client-documentation.php:753
-#@ clientDocumentation
 msgid "Error while deleting the entry. Please try again later."
-msgstr "Fehler beim Löschen des Eintrags. Bitte versuche es später erneut."
+msgstr "Fehler beim Löschen des Eintrags. Bitte versuche es erneut."
 
+# @ clientDocumentation
 #: client-documentation.php:763
-#@ clientDocumentation
 msgid "Error on process"
 msgstr "Fehler beim Verarbeiten"
 
+# @ clientDocumentation
 #: client-documentation.php:788
-#@ clientDocumentation
 msgid "Options updated"
 msgstr "Optionen aktualisiert"
 
-#: client-documentation.php:795
-#: client-documentation.php:976
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:795 client-documentation.php:976
 msgid "One or more fields are missing !"
 msgstr "Ein oder mehrere Felder fehlen!"
 
+# @ clientDocumentation
 #: client-documentation.php:842
-#@ clientDocumentation
 msgid "Error !"
 msgstr "Fehler!"
 
+# @ clientDocumentation
 #: client-documentation.php:910
-#@ clientDocumentation
 msgid "Update error, please try again later."
-msgstr "Aktualisierungsfehler, bitte versuche es später erneut."
+msgstr "Aktualisierungsfehler, bitte versuche es erneut."
 
+# @ clientDocumentation
 #: client-documentation.php:919
-#@ clientDocumentation
 msgid "Some fields are empty"
 msgstr "Einige Felder sind leer"
 
+# @ clientDocumentation
 #: client-documentation.php:928
-#@ clientDocumentation
 msgid "Error while processing, Please try again later."
-msgstr "Fehler beim Verarbeiten, bitte versuche es später erneut."
+msgstr "Fehler beim Verarbeiten, bitte versuche es erneut."
 
+# @ clientDocumentation
 #: client-documentation.php:1009
-#@ clientDocumentation
 msgid "Import error"
 msgstr "Importfehler"
 
+# @ clientDocumentation
 #: client-documentation.php:1010
-#@ clientDocumentation
 msgid "Import completed"
 msgstr "Import abgeschlossen"
 
+# @ clientDocumentation
 #: client-documentation.php:1018
-#@ clientDocumentation
 msgid "Error, please contact the administrator."
 msgstr "Fehler, bitte kontaktiere den Administrator."
 
-#: client-documentation.php:1082
-#: client-documentation.php:1122
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:1082 client-documentation.php:1122
 msgid "Open in a new tab"
 msgstr "In einem neuen Tab öffnen"
 
-#: client-documentation.php:1086
-#: client-documentation.php:1126
-#@ clientDocumentation
+# @ clientDocumentation
+#: client-documentation.php:1086 client-documentation.php:1126
 msgid "Click to view"
 msgstr "Zum Ansehen hier klicken"
 
+# @ clientDocumentation
 #: client-documentation.php:1137
-#@ clientDocumentation
 msgid "Pages"
 msgstr "Seiten"
 
+#: Administrator - Settings dropdown
+msgid "Administrator"
+msgstr "Administrator"
+
+#: Contributor - Settings dropdown
+msgid "Contributor"
+msgstr "Contributor"
+
+#: Credit
+msgid "This plugin was created by"
+msgstr "Dieses Plugin wurde erstellt von"
+
+#: Donate
+msgid "Donate"
+msgstr "Spenden"
+
+#: Help sentences
+msgid "You can customize titles, content, user roles in"
+msgstr ""
+
+#: Help sentences
+msgid ""
+"Run multiple websites ? Use the Import/Export feature to quickly and easily "
+"add content."
+msgstr ""
