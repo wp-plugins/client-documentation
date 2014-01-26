@@ -42,8 +42,10 @@ Backend Users and Administrators can pin items to highlight them.
 * Re-order items ( Drag&Drop )
 * SQL optimization
 * User roles limitation per item
+* WP-CLI features (possibly, let me know if there might be a function which will be helpful for you)
 
-PS: I currently don’t have a lot of time to implement new features due to my work but I’ll do my best to code them as soon as possible. Thank you for your support !
+**26/01/2014:** I’m currently working on Simple Documentation v1.2 — I’m open to any suggestion.
+
 
 == Installation ==
 
