@@ -46,6 +46,8 @@ Backend Users and Administrators can pin items to highlight them.
 
 **26/01/2014:** I’m currently working on Simple Documentation v1.2 — I’m open to any suggestion.
 
+**16/02/2014:** Let me know your thoughts about the upcoming release on this [topic](http://wordpress.org/support/topic/little-update-for-you-guys)
+
 
 == Installation ==
 
