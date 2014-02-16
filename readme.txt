@@ -12,6 +12,8 @@ This plugin helps webmasters/developers to provide documentation through the Wor
 
 == Description ==
 
+Want to learn a little bit more about the upcoming release and share your thoughts, have on this open topic : “[Little Update for you guys](http://wordpress.org/support/topic/little-update-for-you-guys)”
+
 This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
 
 This plugins allows you to share 4 types of content:
@@ -45,9 +47,7 @@ Backend Users and Administrators can pin items to highlight them.
 * WP-CLI features (possibly, let me know if there might be a function which will be helpful for you)
 
 **26/01/2014:** I’m currently working on Simple Documentation v1.2 — I’m open to any suggestion.
-
-**16/02/2014:** Let me know your thoughts about the upcoming release on this [topic](http://wordpress.org/support/topic/little-update-for-you-guys)
-
+**16/02/2013:** Let me know your thoughts about the upcoming release on this [topic](http://wordpress.org/support/topic/little-update-for-you-guys)
 
 == Installation ==
 
