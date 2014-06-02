@@ -5,16 +5,18 @@
 	global $wp_roles, $wpdb;
 	
 	$item_number = $this->settings['item_per_page'];
-	$user = $user = wp_get_current_user();
+	$user = wp_get_current_user();
     	
     $entries = $wpdb->get_results("SELECT * FROM $wpdb->simpleDocumentation ORDER BY ordered ASC");
     
-    $final_entries = array();
+    $final_entries = array();	
     $user_roles = $user->roles[0];
     
     foreach($entries as $data){
 	    
-	    if( ($data->restricted == null && in_array( $user_roles, $this->settings['user_role'])) || ( $data->restricted !== null && in_array( $user_roles, json_decode($data->restricted)) ) )
+	    $restricted = json_decode($data->restricted);
+	    
+	    if( ($data->restricted == null && in_array( $user_roles, $this->settings['user_role'])) || ( is_array($restricted) && in_array( $user_roles, $restricted) ) )
 	    	$final_entries[] = $data;
 	    
     }
@@ -35,7 +37,7 @@
 	<ul class="list_doc" id="simpledoc_list">
 		<?php
 			$page_i = $current_page - 1;
-			for($i = ($page_i * $item_number); ($i < $page_i * $item_number + $item_number) && $i >= ($page_i * $item_number) && $i < count($entries); $i++){
+			for($i = ($page_i * $item_number); ($i < $page_i * $item_number + $item_number) && $i >= ($page_i * $item_number) && $i < count($final_entries); $i++){
 				$item = $final_entries[$i];
 				$id = $item->ID;
 				$icon = $this->icon($item->type);
@@ -72,6 +74,7 @@
 					</div>";
 				
 				if( in_array($item->type, array('link', 'file'))) $expand = '';
+				
 				
 				echo "
 				<li id='simpledoc_{$id}' class='smpldoc_li'>

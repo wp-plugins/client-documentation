@@ -3,7 +3,7 @@ Contributors: mathieuhays
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=862ML9VW2NVQU
 Tags: documentation,video,link,file,note,screenr,youtube,vimeo,backend,embed,multisite
 Requires at least: 3.0.1
-Tested up to: 3.6.1
+Tested up to: 3.9.1
 Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,23 +34,22 @@ Backend Users and Administrators can pin items to highlight them.
 
 * English
 * French
-* Spanish (thanks to [Sugartoys](http://sugartoys.net))
 * German (thanks to [Alexander Pfabel](http://alexander.pfabel.de/))
-
-= Upcoming features =
-
-* Re-order items ( Drag&Drop )
-* SQL optimization
-* User roles limitation per item
-
-PS: I currently don’t have a lot of time to implement new features due to my work but I’ll do my best to code them as soon as possible. Thank you for your support !
+* Spanish (thanks to [Sugartoys](http://sugartoys.net)) (adapted from version 1.1.x)
+* Serbo-Croatian (thanks to [Borisa Djuraskovic](http://www.webhostinghub.com/)) (adapted from version 1.1.x)
 
 == Installation ==
 
-The installation is not tricky. It's simple as activating the plugin and Add content !<br />
+The installation is not tricky. It's simple as activating the plugin and Add content !
 Hit the import/export button to copy your installation on multiple WP installations.
 
 == Changelog ==
+
+= 1.2.0 =
+
+* Re-order by Drag & Drop
+* Per item user limitation
+* Serbo-Croatian adapted from version 1.1.8 version. (Provided by [Borisa Djuraskovic](http://www.webhostinghub.com/))
 
 = 1.1.8 =
 
@@ -125,11 +124,7 @@ Thanks to Alexander Pfabel and Vernon Fowler.
 
 == Upgrade Notice ==
 
-= 1.1.6 =
-Fix video and file edition issues.
-
-= 1.1.5 =
-This new update allows you to add code snippet in notes and fix &lt;br&gt; tag issues.
+New version completely rebuilt from scratch including new features such as reorder and per item limitation.
 
 == Frequently Asked Questions ==
 = What's happenning when I delete this plugin ? =
@@ -140,6 +135,6 @@ You must add your code snippet between &lt;code&gt; tags.
 
 == Screenshots ==
 
-1. Widget shown to Administrator and the User role you want (Editor as default)
-2. Add content box
-3. Options
+1. Simple Documentation in your dashboard
+2. Main editor. Choose between different type of content
+3. Setting page

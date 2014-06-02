@@ -4,7 +4,7 @@
 	Plugin Name: Simple Documentation
 	Plugin URI: http://mathieuhays.co.uk/simple-documentation/
 	Description: This plugin helps webmasters/developers to provide documentation through the wordpress dashboard.
-	Version: 1.2 beta
+	Version: 1.2.0
 	Author: Mathieu Hays
 	Author URI: http://mathieuhays.co.uk
 	License: GPL2
@@ -356,9 +356,24 @@ class simpleDocumentation {
      * 	Add Widget on dashboard.
      */
     public function add_dashboard(){
-
+		global $wpdb, $wp_roles;
+		
+		$entries = $wpdb->get_results("SELECT restricted FROM {$wpdb->simpleDocumentation} ORDER BY ordered ASC");
+		$user = wp_get_current_user();
+	    $user_roles = $user->roles[0];
+	    $display = false;
+	 
+	    foreach($entries as $data){
+		    
+		    $restricted = json_decode($data->restricted);
+		    
+		    if( ($data->restricted == null && in_array( $user_roles, $this->settings['user_role'])) || ( is_array($restricted) && in_array( $user_roles, $restricted) ) )
+		    	$display = true;
+		    
+	    }
+		
 		// Filter by role and apply custom title
-		if($this->check_user_role($this->settings['user_role']))
+		if($display)
 	    	wp_add_dashboard_widget( $this->slug , stripslashes($this->settings['label_widget_title']) , array( $this, 'dashboard_widget') );
 	    
     }
